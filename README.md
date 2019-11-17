@@ -1,9 +1,9 @@
-## $\LaTeX$ template
+# $$\LaTeX$$ template
 + 2-column: underconstruction.
 + slide(beamer): freezed.
 + 1-column: yet.
 
-### sie kit
+## sie kit
 ```
 ./
 ├─program
