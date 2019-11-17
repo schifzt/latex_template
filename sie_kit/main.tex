@@ -1,0 +1,39 @@
+\documentclass[technicalreport, uplatex]{"./setting/sie"}
+\usepackage{"./setting/macros"}
+\graphicspath{{./program/data/fig/}}
+
+
+% ------------------------------------------------------
+% subsection/subsubsectionをサンセリフ，太字，左揃えにする
+% \usepackage{titlesec}
+% \titleformat*{\subsection}{\Large\bfseries\raggedright}
+% \titleformat*{\subsubsection}{\bfseries}
+% ------------------------------------------------------
+
+\jtitle{}
+\jsubtitle{}
+\def\author{}
+\def\topLeftBox{}
+\def\topRightBox{}
+
+
+\begin{document}
+\renewcommand{\figurename}{図}
+\renewcommand{\tablename}{表}
+\renewcommand{\refname}{参考文献}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\theequation}{\arabic{equation}}
+
+
+\maketitle
+
+
+\section{}
+
+
+\subsection{}
+
+
+\bibliographystyle{./setting/sie}
+\bibliography{refs}
+\end{document}

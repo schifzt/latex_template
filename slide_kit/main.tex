@@ -1,0 +1,80 @@
+\documentclass[uplatex, dvipdfmx, cjk, aspectratio=43]{beamer}
+% \documentclass[uplatex, dvipdfmx, cjk, aspectratio=169, handout]{beamer}
+\graphicspath{{./figure/}}
+\usepackage{"./setting/slide"}
+\usepackage{"./setting/macros"}
+
+\begin{document}
+
+\title{進捗報告}
+\subtitle{ほげほげほえ}
+\author{name}
+\institute{hoge研究室}
+\date{2019-11-13}
+
+% ---------------------------
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% ---------------------------
+
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+% ---------------------------
+
+\begin{frame}{校了する場合}
+    \begin{itemize}
+        \item あ
+        \item い
+        \item う
+    \end{itemize}
+\end{frame}
+
+% ---------------------------
+
+\section{計算時間による遅延のみ考慮する場合}
+\begin{frame}
+    \begin{itemize}                %% 箇条書き
+        \item 豊科\pause           %% \pauseが挿入された箇所でスライドを分割する
+        \item 明科
+    \end{itemize}
+
+    % \begin{figure}
+    %     \centering
+    %     \includegraphics<1|handout:0>[width=8cm]{./figure/sys1.png}
+    %     \includegraphics<2|handout:0>[width=8cm]{./figure/sys1-2.png}
+    %     \includegraphics<3|handout:0>[width=8cm]{./figure/sys1-3.png}
+    %     \includegraphics<4->[width=8cm]{./figure/sys2.png}
+    % \end{figure}
+
+    \begin{block}{これからの幾何学}
+    \end{block}
+    \begin{alertblock}{PowerPointの問題点}
+    \end{alertblock}
+    \begin{exampleblock}{評価関数}
+    \end{exampleblock}
+
+
+    \begin{theorem}[Fermat]
+        定理型環境が使える.\\
+        $a^{p-1} \equiv 1 \pmod{p}$
+    \end{theorem}
+
+\end{frame}
+
+% ---------------------------
+
+\begin{frame}[allowframebreaks]
+    ~\cite{kashima2019}
+    ~\cite{ito2018}
+    \bibliographystyle{./setting/sie}
+    \bibliography{refs}
+\end{frame}
+
+% ---------------------------
+
+\end{document}

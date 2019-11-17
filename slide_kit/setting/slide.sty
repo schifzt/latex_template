@@ -1,0 +1,64 @@
+% \ProvidesPackage{bc_thesis_slide}
+
+% デザイン
+\usetheme{metropolis}
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\usefonttheme{metropolis}
+
+% 色定義
+\definecolor{mBlue}{RGB}{24, 115, 240}
+\definecolor{mGreen}{RGB}{68, 165, 72}
+\definecolor{mGray}{RGB}{214, 214, 214}
+
+% オリヂナル設定
+% \usecolortheme{rose}                                                % 全体のスタイルカラー
+\newcommand{\ThemeColor}{mGreen}                                    % テーマカラー（ここだけ変えればok）
+\setbeamercolor{normal text}{fg=black}                              % 本文の文字色
+\setbeamercolor{structure}{fg=\ThemeColor}                          % \structure{}で囲った文字などの文字色
+\setbeamercolor{alerted text}{fg=red}                               % \alert{}で囲った文字などの文字色
+\setbeamercolor{example text}{fg=mGreen}
+
+\setbeamercolor{title}{fg=black, bg=white}                          % 表紙のタイトル色
+\setbeamercolor{author}{fg=\ThemeColor, bg=white}                   % 表紙の著者色
+\setbeamercolor{frametitle}{fg=white, bg=\ThemeColor}               % 各スライドのタイトル色
+\setbeamerfont{frametitle}{size=\large, series=\bf}                 % 各スライドのタイトルフォント
+\setbeamercolor{sectiontitle}{fg=black}                             % セクションページのタイトル色
+
+% metropolisテーマ専用設定
+\metroset{progressbar=frametitle}
+% \metroset{block=fill}                                               % blockの背景fill, transparent
+\setbeamercolor{progress bar}{fg=lightgray, bg=mGray}               % 各スライド上部ののprogress barの色
+\setbeamercolor{progress bar in section page}{use=progress bar}     % セクションページのprogress barの色
+\setlength{\metropolis@titleseparator@linewidth}{2.0pt}             % 表紙のprogress barの太さ
+\setlength{\metropolis@progressinheadfoot@linewidth}{2.0pt}         % 各スライド上部のprogress barの太さ
+\setlength{\metropolis@progressonsectionpage@linewidth}{2.0pt}      % セクションページのprogress barの太さ
+
+% 便利環境
+\usepackage{amsmath}
+\usepackage{ulem}
+
+% フォント
+\usepackage{txfonts}                                    % サンセリフ体の数式フォント
+\renewcommand{\kanjifamilydefault}{\gtdefault}          % ゴシック体の日本語フォント
+\usepackage{pxjahyper}                                  % しおりが文字化けしないように
+\setbeamercovered{transparent}                          % 消えている文字をうっすらと表示する
+\usefonttheme{professionalfonts}                        % 数式の文字を通常の LaTeX と同じにする
+
+% なんかいろいろ
+\usepackage{tikz}
+\usepackage{appendixnumberbeamer}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\setbeamertemplate{navigation symbols}{}                % ナビゲーションシンボルを消す
+\setbeamertemplate{bibliography item}[text]             % 参考文献のダサいアイコンを消す
+
+% 定理ボックス
+% \setbeamertemplate{theorems}[numbered]                % 定理に番号をつける
+\newtheorem{thm}{定理}[section]
+\newtheorem{proposition}[thm]{命題}
+\theoremstyle{example}
+\newtheorem{exam}[thm]{例}
+\newtheorem{remark}[thm]{コメント}
+\newtheorem{question}[thm]{疑問}
+\newtheorem{prob}[thm]{問題}

@@ -1,0 +1,42 @@
+% paran
+\newcommand{\paren}[1]{ \left( #1 \right) }
+\newcommand{\pparen}[1]{ \lbrace #1 \rbrace }
+\newcommand{\bracket}[1]{ \left[ #1 \right] }
+
+% bold
+\newcommand{\bmb}{ \bm{b} }
+\newcommand{\bmB}{ \bm{B} }
+\newcommand{\bmn}{ \bm{n} }
+\newcommand{\bmI}{ \bm{I} }
+\newcommand{\bmx}{ \bm{x} }
+\newcommand{\bmX}{ \bm{X} }
+\newcommand{\bmW}{ \bm{W} }
+
+
+\newcommand{\iid}{ \overset{\text{i.i.d}}{\sim} }
+
+% abs
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\makeatletter
+
+% norm
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\makeatletter
+
+% opnorm
+\newcommand{\opnorm}{\@ifstar\@opnorms\@opnorm}
+\newcommand{\@opnorms}[1]{%
+  \left|\mkern-1.5mu\left|\mkern-1.5mu\left|
+   #1
+  \right|\mkern-1.5mu\right|\mkern-1.5mu\right|
+}
+\newcommand{\@opnorm}[2][]{%
+  \mathopen{#1|\mkern-1.5mu#1|\mkern-1.5mu#1|}
+  #2
+  \mathclose{#1|\mkern-1.5mu#1|\mkern-1.5mu#1|}
+}
+\makeatother
+
+\newcommand{\eq}[1]{(\ref{#1}) }
+\newcommand{\fig}[1]{図\ref{#1} }
+\newcommand{\tbl}[1]{表\ref{#1} }

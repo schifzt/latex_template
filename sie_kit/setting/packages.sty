@@ -1,0 +1,39 @@
+\ProvidesPackage{my_report}
+% \documentclass[10pt, a4paper]{jsarticle}
+% \documentclass[10pt, a4paper, draft]{jsarticle}                         % disable images
+% \documentclass[twocolumn, 8pt, a4paper]{jsarticle}                      %2column
+
+% \usepackage[twocolumn, top=30truemm, bottom=30truemm]{geometry}
+
+\usepackage{amsmath, amssymb}                                           % greek alphabet
+\allowdisplaybreaks                                                     % new page equation break control
+\usepackage {autobreak}
+\usepackage{bm}                                                         % math formula
+\usepackage[table, xcdraw]{xcolor}                                      % color table
+% \usepackage{graphicx}                                                 % image
+\usepackage[dvipdfmx]{graphicx}
+
+\usepackage[hang, small, bf]{caption}                                   % image multi caption
+\usepackage[subrefformat=parens, font=footnotesize]{subcaption}
+\captionsetup{compatibility=false}
+
+\usepackage{ascmac}
+\usepackage[english]{babel}                                             % english label, date etc
+\usepackage{siunitx}                                                    % SI unit system
+
+\usepackage{bm}                                                         % matrix vector
+\usepackage{titlesec}                                                   % subsection font size
+\usepackage{listings}                                                   %program
+\lstset{%
+  language={C},
+  basicstyle={\ttfamily\footnotesize},
+  columns=[l]{fullflexible},
+  breaklines=true
+% , basicstyle=\ttfamily\footnotesize, frame=single
+}
+\pagestyle{headings}                                                    % page number on/off
+\titleformat*{\subsection}{\normalsize\bfseries}                        %set subsection font size
+
+\makeatletter                                                           % equation number
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\makeatother
