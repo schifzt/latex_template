@@ -1,0 +1,118 @@
+% \documentclass[10pt, a4paper, uplatex]{jsarticle}
+% \documentclass[10pt, a4paper, draft, uplatex]{jsarticle}                         % disable images
+% \documentclass[twocolumn, 8pt, a4paper, uplatex]{jsarticle}                      %2column
+\usepackage{"../packages"}
+\usepackage{"../macros"}
+
+%--------------------------------------
+%title & author
+%--------------------------------------
+\title{
+    title title
+}
+
+\author{
+    John Doe
+    \thanks{Ministry of Truth}
+}
+\date{\today}
+
+
+%--------------------------------------
+%main
+%--------------------------------------
+\begin{document}
+\maketitle
+
+\tableofcontents
+% \columnseprule=0. 2mm
+
+% 連立方程式
+\begin{align}
+    \left\{
+        \begin{array}{llll}
+            i_2=\frac{v_2}{R_2} \\
+            i_3=\frac{v_3}{R_3} \\
+        \end{array}
+    \right.
+\end{align}
+
+
+% 行列
+\begin{pmatrix}
+    a \\
+    b
+\end{pmatrix}
+
+% プログラム
+\begin{lstlisting}[language=R]
+    library(rstan)
+    fit <- stan(file = 'binomial.stan',
+                data = data_dat,
+                iter = 3000,
+                warmup = 1000,
+                chains = 4,
+                seed = 1,
+                thin = 2)
+\end{lstlisting}
+
+
+
+
+% figure x1
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{./kadai1/fig3.png}
+    \caption{反転増幅回路}
+    \label{fig3}
+\end{figure}
+
+% figure x3
+\begin{figure}
+    \centering
+    \includegraphics[width=15cm]{./kadai1/fig1.png}
+    \caption{反転増幅回路}
+    \label{fig1}
+
+    \includegraphics[width=15cm]{./kadai1/fig2.png}
+    \caption{反転増幅回路}
+    \label{fig2}
+
+    \includegraphics[width=15cm]{./kadai1/fig3.png}
+    \caption{反転増幅回路}
+    \label{fig3}
+\end{figure}
+
+
+% figure x3 each caption
+\begin{figure}[htb]
+    \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[keepaspectratio, scale=0.5]{./kadai1/fig12}
+        \subcaption{見給え人がごみのようだ}
+        \label{l1}
+    \end{minipage}
+    \begin{minipage}[b]{0.45\linewidth}
+        \centering
+        \includegraphics[keepaspectratio, scale=0.5]{./kadai1/fig13}
+        \subcaption{目, 目が～！！！}
+        \label{l2}
+    \end{minipage}
+    \caption{
+        ラピュタにおけるムスカの態度変化.
+        \subref{l1}調子づくムスカ.
+        \subref{l2}絶望の縁である.
+    }
+    \label{musuka}
+\end{figure}
+
+
+% itembox
+\begin{itembox}[l]{最小自乗解}
+    hogehoge
+\end{itembox}
+
+\renewcommand{\bibname}{参考文献}
+\bibliographystyle{sieicej}
+\bibliography{refs}
+\end{document}

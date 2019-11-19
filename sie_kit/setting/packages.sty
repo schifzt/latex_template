@@ -23,16 +23,27 @@
 
 \usepackage{bm}                                                         % matrix vector
 \usepackage{titlesec}                                                   % subsection font size
-\usepackage{listings}                                                   %program
-\lstset{%
-  language={C},
+
+\usepackage{listings}                                                   % source code
+\usepackage{color}
+\definecolor{Mbgcolor}{rgb}{0.95,0.95,0.95}
+\definecolor{Mcommentcolor}{rgb}{0,0.6,0}
+\definecolor{Mmauve}{rgb}{0.58,0,0.82}
+\lstset{
   basicstyle={\ttfamily\footnotesize},
   columns=[l]{fullflexible},
-  breaklines=true
-% , basicstyle=\ttfamily\footnotesize, frame=single
+  backgroundcolor=\color{Mbgcolor},                                     % choose the background color
+  basicstyle={\ttfamily\footnotesize},                                  % size of fonts used for the code
+  breaklines=true,                                                      % automatic line breaking only at whitespace
+  captionpos=b,                                                         % sets the caption-position to bottom
+  commentstyle=\color{Mcommentcolor},                                   % comment style
+  escapeinside={\%*}{*)},                                               % if you want to add LaTeX within your code
+  keywordstyle=\color{blue},                                            % keyword style
+  stringstyle=\color{Mmauve},                                           % string literal style
 }
+
 \pagestyle{headings}                                                    % page number on/off
-\titleformat*{\subsection}{\normalsize\bfseries}                        %set subsection font size
+\titleformat*{\subsection}{\normalsize\bfseries}                        % set subsection font size
 
 \makeatletter                                                           % equation number
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
