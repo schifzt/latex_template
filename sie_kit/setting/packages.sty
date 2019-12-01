@@ -8,11 +8,10 @@
 \usepackage{amsmath, amssymb}                                           % greek alphabet
 \allowdisplaybreaks                                                     % new page equation break control
 \usepackage {autobreak}
-\usepackage{bm}                                                         % math formula
 \usepackage[table, xcdraw]{xcolor}                                      % color table
+
 % \usepackage{graphicx}                                                 % image
 \usepackage[dvipdfmx]{graphicx}
-
 \usepackage[hang, small, bf]{caption}                                   % image multi caption
 \usepackage[subrefformat=parens, font=footnotesize]{subcaption}
 \captionsetup{compatibility=false}
@@ -48,3 +47,6 @@
 \makeatletter                                                           % equation number
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \makeatother
+\usepackage{mathtools}                                                  % auto \nonumber, \align*
+\mathtoolsset{showonlyrefs}
+
