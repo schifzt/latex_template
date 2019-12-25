@@ -1,17 +1,32 @@
 \ProvidesPackage{my_report}
 % \documentclass[10pt, a4paper]{jsarticle}
 % \documentclass[10pt, a4paper, draft]{jsarticle}                         % disable images
-% \documentclass[twocolumn, 8pt, a4paper]{jsarticle}                      %2column
 
-% \usepackage[twocolumn, top=30truemm, bottom=30truemm]{geometry}
+% 以下を\begin{document}内に書いておく
+% \renewcommand{\figurename}{図}      
+% \renewcommand{\tablename}{表}
+% \renewcommand{\refname}{参考文献}
+% \renewcommand{\bibname}{参考文献}
+\renewcommand{\theequation}{\arabic{equation}}                          % 式番号(1),(2),(3)
+% \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}       % 式番号(1.1),(1.2),(2.3)
 
-\usepackage{amsmath, amssymb}                                           % greek alphabet
+\usepackage{amsmath, amssymb, mathtools}                                % greek alphabet
 \allowdisplaybreaks                                                     % new page equation break control
 \usepackage {autobreak}
+\usepackage{bm}                                                         % math formula
 \usepackage[table, xcdraw]{xcolor}                                      % color table
+\usepackage[dvipdfmx]{graphicx, hyperref}
 
-% \usepackage{graphicx}                                                 % image
-\usepackage[dvipdfmx]{graphicx}
+\hypersetup{                                                            % hyperref
+ setpagesize=false,
+ linkcolor=blue,
+ urlcolor=blue,
+ citecolor=blue,
+ colorlinks=true,
+ bookmarks=false,
+ hypertexnames=true
+}
+
 \usepackage[hang, small, bf]{caption}                                   % image multi caption
 \usepackage[subrefformat=parens, font=footnotesize]{subcaption}
 \captionsetup{compatibility=false}
@@ -22,31 +37,63 @@
 
 \usepackage{bm}                                                         % matrix vector
 \usepackage{titlesec}                                                   % subsection font size
-
-\usepackage{listings}                                                   % source code
-\usepackage{color}
-\definecolor{Mbgcolor}{rgb}{0.95,0.95,0.95}
-\definecolor{Mcommentcolor}{rgb}{0,0.6,0}
-\definecolor{Mmauve}{rgb}{0.58,0,0.82}
-\lstset{
+\usepackage{listings}                                                   % program
+\lstset{%
+  language={C},
   basicstyle={\ttfamily\footnotesize},
   columns=[l]{fullflexible},
-  backgroundcolor=\color{Mbgcolor},                                     % choose the background color
-  basicstyle={\ttfamily\footnotesize},                                  % size of fonts used for the code
-  breaklines=true,                                                      % automatic line breaking only at whitespace
-  captionpos=b,                                                         % sets the caption-position to bottom
-  commentstyle=\color{Mcommentcolor},                                   % comment style
-  escapeinside={\%*}{*)},                                               % if you want to add LaTeX within your code
-  keywordstyle=\color{blue},                                            % keyword style
-  stringstyle=\color{Mmauve},                                           % string literal style
+  breaklines=true
+% , basicstyle=\ttfamily\footnotesize, frame=single
 }
-
 % \pagestyle{headings}                                                    % page number on/off
 \titleformat*{\subsection}{\normalsize\bfseries}                        % set subsection font size
 
 \makeatletter                                                           % equation number
 \renewcommand{\theequation}{\thesection.\arabic{equation}}
 \makeatother
-\usepackage{mathtools}                                                  % auto \nonumber, \align*
-\mathtoolsset{showonlyrefs}
 
+
+\usepackage[T1]{fontenc}                                                % avoid mojibake
+\usepackage{lmodern}                                                    % font
+\usepackage{latexsym}                                                   % symbol extension
+\usepackage[noadjust]{cite}    
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\usepackage{amsthm}
+\newtheoremstyle{my_thmstyle}   % name
+{}                              % space above
+{}                              % space below
+{\normalfont}                   % body font
+{}                              % indent amount
+{\bfseries}                     % theorem head font
+{}                              % punctuation after theorem head
+{5pt}                           % space after theorem head (default: 5pt)
+{\thmname{#1}\thmnumber{#2}\thmnote{\hspace{2pt}(#3)}}% theorem head spec
+
+\theoremstyle{my_thmstyle}
+% \theoremstyle{definition}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem*{theorem*}{定理} 
+\newtheorem{definition}[theorem]{定義}
+\newtheorem*{definition*}{定義}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem*{proposition*}{命題} 
+\newtheorem{corollary}[theorem]{系}
+\newtheorem*{corollary*}{系} 
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem*{lemmma*}{補題} 
+\newtheorem{remark}[theorem]{コメント}
+\newtheorem*{remark*}{コメント}
+\newtheorem{example}[theorem]{例}
+\newtheorem*{example*}{例}
+\newtheorem*{none}{}
+% \begin{theorem}[定理の名前]
+%     定理の内容
+% \end{theorem}
+% を本文に書けば使える
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------

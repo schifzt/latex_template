@@ -25,5 +25,7 @@ rm ./latex_template --interactive=never -r
     + グラフ描画プログラム：`data` dir.に置いてグラフは`fig` dir.に保存する
 + Linux/Macではコンパイル可能だがWindowsできない
     + 恐らくbib関係の問題
+    + `uplatex` --> `platex`で動く説
+    + その場合，`[uplatex]{"./setting/sie"}` --> `[platex]{"./setting/sie"}`
 
 
