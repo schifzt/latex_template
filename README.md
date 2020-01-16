@@ -19,12 +19,12 @@ rm -rf./latex_template --interactive=never
 └─setting
 ```
 + 2-columnのテンプレート
-+ 電子情報通信学会のテンプレートを改造
-+ ソースコードとtexファイルを一括管理
-    + データ生成プログラム：`program` dirに置いてデータは`data` dir.に保存する
-    + グラフ描画プログラム：`data` dir.に置いてグラフは`fig` dir.に保存する
-+ Linux/Macではコンパイル可能だがWindowsできない
-    + 恐らくbibの`sie`スタイルがuplatexに対応してないから
+    + [電子情報通信学会のテンプレート](https://www.ieice.org/ftp/)をベースに，改変を施したスタイルファイルを使用
++ ソースコードとtexファイルを一括管理できる
+    + データ生成プログラム：`program` dirに置いてデータは`data` dirに保存する
+    + グラフ描画プログラム：`data` dirに置いてグラフは`fig` dirに保存する
++ Linux/Macではコンパイル可能だがWindowsできない問題
+    + 恐らくbibの`sie`スタイルがuplatexに対応してないから？
     + `sie` --> `abbrv`にする
     + `uplatex` --> `platex`にする
         + その場合，`[uplatex]{"../setting/sie"}` --> `[platex]{"../setting/sie"}`
