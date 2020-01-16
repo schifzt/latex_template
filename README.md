@@ -6,11 +6,11 @@
 ## Install
 ```bash
 git clone https://schifzt@github.com/schifzt/latex_template
-mv ./latex_template/sie_kit/ ./new_project
-rm ./latex_template --interactive=never -r
+mv ./latex_template/paper/ ./new_project
+rm -rf./latex_template --interactive=never 
 ```
 
-## sie kit
+## "paper" template
 ```
 ./
 ├─program
@@ -24,8 +24,9 @@ rm ./latex_template --interactive=never -r
     + データ生成プログラム：`program` dirに置いてデータは`data` dir.に保存する
     + グラフ描画プログラム：`data` dir.に置いてグラフは`fig` dir.に保存する
 + Linux/Macではコンパイル可能だがWindowsできない
-    + 恐らくbib関係の問題
-    + `uplatex` --> `platex`で動く説
-    + その場合，`[uplatex]{"./setting/sie"}` --> `[platex]{"./setting/sie"}`
+    + 恐らくbibの`sie`スタイルがuplatexに対応してないから
+    + `sie` --> `abbrv`にする
+    + `uplatex` --> `platex`にする
+        + その場合，`[uplatex]{"../setting/sie"}` --> `[platex]{"../setting/sie"}`
 
 
