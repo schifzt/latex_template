@@ -2,14 +2,6 @@
 % \documentclass[10pt, a4paper]{jsarticle}
 % \documentclass[10pt, a4paper, draft]{jsarticle}                         % disable images
 
-% 以下を\begin{document}内に書いておく
-% \renewcommand{\figurename}{図}      
-% \renewcommand{\tablename}{表}
-% \renewcommand{\refname}{参考文献}
-% \renewcommand{\bibname}{参考文献}
-\renewcommand{\theequation}{\arabic{equation}}                          % 式番号(1),(2),(3)
-% \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}       % 式番号(1.1),(1.2),(2.3)
-
 \usepackage{amsmath, amssymb, mathtools}                                % greek alphabet
 \allowdisplaybreaks                                                     % new page equation break control
 \usepackage {autobreak}
@@ -27,6 +19,7 @@
  hypertexnames=true
 }
 
+\usepackage{tikz}
 \usepackage[hang, small, bf]{caption}                                   % image multi caption
 \usepackage[subrefformat=parens, font=footnotesize]{subcaption}
 \captionsetup{compatibility=false}
@@ -58,7 +51,6 @@
 \usepackage{latexsym}                                                   % symbol extension
 \usepackage[noadjust]{cite}    
 
-% ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 
 \usepackage{amsthm}
@@ -95,5 +87,4 @@
 % \end{theorem}
 % を本文に書けば使える
 
-% ------------------------------------------------------------------------
 % ------------------------------------------------------------------------

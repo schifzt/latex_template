@@ -1,7 +1,6 @@
-\documentclass[technicalreport, uplatex]{"./setting/sie"}
-\usepackage{"./setting/packages"}
-\usepackage{"./setting/macros"}
-\graphicspath{{./program/data/fig/}}
+\documentclass[technicalreport, uplatex]{"../setting/sie"}
+\usepackage{"../setting/index"}
+\graphicspath{{../program/data/fig/}}
 
 
 % ------------------------------------------------------
@@ -19,6 +18,9 @@
 
 
 \begin{document}
+\newcommand{\eq}[1]{(式\ref{#1}) }
+\newcommand{\fig}[1]{図\ref{#1} }
+\newcommand{\tbl}[1]{表\ref{#1} }
 \renewcommand{\figurename}{図}
 \renewcommand{\tablename}{表}
 \renewcommand{\refname}{参考文献}
@@ -35,6 +37,11 @@
 \subsection{}
 
 
-\bibliographystyle{./setting/sie}
+% \bibliographystyle{../setting/sie}
+\bibliographystyle{abbrv}
 \bibliography{refs}
+
+% Biblatex ver.(under construction)
+% \addbibresource{refs.bib}
+% \printbibliography[title=参考文献]
 \end{document}

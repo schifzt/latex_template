@@ -1,0 +1,28 @@
+% Description:
+%   Add axis label to figure.
+%
+% Usage:
+% \begin{figure}[t]
+%     \centering
+%     \begin{tikzpicture}
+%         \tikzincludegraphics[width=6cm]{chart.pdf}
+%         \xlabel{$x$}
+%         \ylabel{$y$}
+%     \end{tikzpicture}
+%     \caption{}
+%     \label{}
+% \end{figure}
+%
+
+% tikzincludegraphics
+\newcommand{\tikzincludegraphics}[2][width=6cm]{
+    \node[inner sep = 0pt] (plot) {\includegraphics[#1]{#2}};
+}
+% xlabel
+\newcommand{\xlabel}[2][\scriptsize]{
+    \node[anchor = north, inner sep = 0pt] at (plot.south) {#1 #2};
+}
+% ylabel
+\newcommand{\ylabel}[2][\scriptsize]{
+    \node[anchor = south, inner sep = 0pt, rotate=90] at (plot.west) {#1 #2};
+}
