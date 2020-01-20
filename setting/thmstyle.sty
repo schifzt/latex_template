@@ -1,0 +1,33 @@
+\usepackage{amsthm}
+\newtheoremstyle{my_thmstyle}   % name
+{}                              % space above
+{}                              % space below
+{\normalfont}                   % body font
+{}                              % indent amount
+{\bfseries}                     % theorem head font
+{}                              % punctuation after theorem head
+{5pt}                           % space after theorem head (default: 5pt)
+{\thmname{#1}\thmnumber{#2}\thmnote{\hspace{2pt}(#3)}}% theorem head spec
+
+\theoremstyle{my_thmstyle}
+% \theoremstyle{definition}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem*{theorem*}{定理} 
+\newtheorem{definition}[theorem]{定義}
+\newtheorem*{definition*}{定義}
+\newtheorem{proposition}[theorem]{命題}
+\newtheorem*{proposition*}{命題} 
+\newtheorem{corollary}[theorem]{系}
+\newtheorem*{corollary*}{系} 
+\newtheorem{lemma}[theorem]{補題}
+\newtheorem*{lemmma*}{補題} 
+\newtheorem{remark}[theorem]{コメント}
+\newtheorem*{remark*}{コメント}
+\newtheorem{example}[theorem]{例}
+\newtheorem*{example*}{例}
+\newtheorem*{none}{}
+% \begin{theorem}[定理の名前]
+%     定理の内容
+% \end{theorem}
+% を本文に書けば使える
