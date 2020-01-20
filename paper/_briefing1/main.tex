@@ -25,8 +25,8 @@
 \renewcommand{\tablename}{表}
 \renewcommand{\refname}{参考文献}
 \renewcommand{\bibname}{参考文献}
-\renewcommand{\theequation}{\arabic{equation}}
-
+\renewcommand{\theequation}{\arabic{equation}}                          % 式番号(1),(2),(3)
+% \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}       % 式番号(1.1),(1.2),(2.3)
 
 \maketitle
 
@@ -38,7 +38,10 @@
 
 
 % \bibliographystyle{../setting/sie}
-\bibliographystyle{abbrv}
+% \bibliographystyle{abbrv}
+\bibliographystyle{rusnat}
+\citet{hoge2020}
+
 \bibliography{refs}
 
 % Biblatex ver.(under construction)
