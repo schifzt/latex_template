@@ -1,5 +1,6 @@
-\documentclass[technicalreport, uplatex]{"../setting/sie"}
+\documentclass[10pt, a4paper, uplatex]{jsarticle}
 \usepackage{"../setting/index"}
+\usepackage{"../setting/1-column"}
 \graphicspath{{../program/data/fig/}}
 
 
@@ -29,19 +30,24 @@
 % \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}       % 式番号(1.1),(1.2),(2.3)
 
 \maketitle
+\section*{著者}
+\begin{description}
+    \item[氏名：]
+    \item[学籍番号：] 
+    \item[所属：]
+\end{description}
 
 % \setcounter{section}{5}
 \section{}
 
 
 \subsection{}
+% \citet{hoge2020}
 
 
 % \bibliographystyle{../setting/sie}
 % \bibliographystyle{abbrv}
 \bibliographystyle{rusnat}
-\citet{hoge2020}
-
 \bibliography{refs}
 
 % Biblatex ver.(under construction)

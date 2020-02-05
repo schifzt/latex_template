@@ -1,0 +1,70 @@
+% Description:
+%   This is a 1-column style file, assuming to use
+%   	\documentclass[10pt, a4paper, uplatex]{jsarticle}
+
+
+% subsection/subsubsectionをサンセリフ，太字，左揃えにする
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries\raggedright}
+\titleformat*{\subsection}{\large\bfseries\raggedright}
+\titleformat*{\subsubsection}{\bfseries}
+
+% ==================================================================
+
+% 余白レイアウト
+\usepackage{geometry}
+\usepackage{afterpage}
+\newgeometry{
+    a4paper,
+    includeheadfoot=true,
+    headsep=0.0cm,
+    headheight=0.5cm,
+    footskip=0.5cm,
+    top=0.5cm,
+    bottom=0.5cm,
+    left=1.0cm,
+    right=1.0cm
+}
+
+% ==================================================================
+
+% 1ページ目にだけ適用するスタイル
+\usepackage{fancyhdr}
+\fancypagestyle{firstpagestyle}
+{
+	\fancyhead{}
+	\fancyhead[L]{\topLeftBox}
+	\fancyhead[R]{\topRightBox}
+	\renewcommand{\headrulewidth}{0.4pt}
+}
+% 2ページ目以降に適用するスタイル
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyfoot[R]{---\space\thepage\space---}
+\renewcommand{\headrulewidth}{0.0pt}
+% \renewcommand{\footrulewidth}{0.4pt} % line width at foot
+
+% \jtitle, jsubtitle変数を定義
+\newcommand{\jtitle}[1]{\def\jtitle{#1}}
+\newcommand{\jsubtitle}[1]{\def\jsubtitle{#1}}
+
+% 既存の\maketitleコマンドをカスタム
+\let\OLDmaketitle\maketitle
+\let\OLDauthor\author
+\renewcommand{\maketitle}{
+	\title{
+		\jtitle
+		\ifx\jsubtitle\empty
+		\else
+		{
+			\\
+			\normalsize\jsubtitle
+		}
+		\fi
+	}
+	\OLDauthor{\author}
+	\date{\vspace{-20mm}}
+	\OLDmaketitle
+	\thispagestyle{firstpagestyle}
+}
