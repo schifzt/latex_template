@@ -1,7 +1,7 @@
 # LaTeX template
-+ 2-column: underconstruction.
++ 1-column: finished.
++ 2-column: finished.
 + slide(beamer): underconstruction.
-+ 1-column: yet.
 
 ## Install
 ```bash
