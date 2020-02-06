@@ -1,0 +1,285 @@
+% Description:
+%   This is a test text i.e. Japanese lorem ipsum.
+
+\section{Eigen Factor$\texttrademark$の原理}
+Eigen Factor$\texttrademark$（以下，EFと省略する）は，
+論文誌をランキング評価するための定量的な指標である．
+他の評価指標として．Impact Factor（以下，IFと省略する）が知られている．
+EFはIFの短所を改善したものと位置づけられる．
+IFとの比較については次の節で述べ，この節ではEFの原理について述べる．
+\par
+EFの原理はGoogleのPageRankの原理に類似している．
+論文誌の重要度を測る基準として，次の3つの基準が挙げられる．
+\begin{enumerate}
+    \item よく引用される雑誌は重要度が高い．
+    \item 重要な雑誌から引用される雑誌もまた重要度が高い．
+    \item 多く引用する雑誌（例：レビュー誌）からの引用は重要度が低い．
+\end{enumerate}
+これらの基準に照らしてEFは計算される．
+\par
+論文誌の総数は$N$で，それぞれの論文誌を添字集合$\pparen{1,2,\ldots,N}$によって識別する．
+論文誌$i$が論文誌$j$を引用している場合，$A_{ij}=0~(i\neq j)$．
+そうでない場合，$A_{ij}=0$として隣接行列$\bm{A} \in \mathbb{R}^{N \times N}$を定義する．
+ただし，$A_{ii}=0$とし，論文誌のセルフ引用はカウントしない．
+次に，行列$\bm{B} \in \mathbb{R}^{N \times N}$を以下のように定める．
+\begin{align*}
+    & B_{ij} = \\
+    & \text{（論文誌$i$から論文誌$j$への遷移確率）} = \\
+    & \begin{cases}
+        \alpha \frac{A_{ij}}{\sum_{\ell=1}^N A_{i\ell}} + (1-\alpha) \bm{1}\bm{\nu}^{\top}
+        &\quad \sum_{\ell=1}^N A_{i\ell} \geq 1\text{の場合．} \\
+        \\
+        \bm{1}\bm{\nu}^{\top}
+        &\quad \sum_{\ell=1}^N A_{i\ell} =0\text{の場合．} 
+    \end{cases}
+\end{align*}
+ここで，$\bm{\nu} \in \mathbb{R}^N$はパーソナル化ベクトルとよばれ，
+\begin{align*}
+    \nu_i = 
+    \frac{\text{EFの計測期間中に論文誌$i$が発行した論文の総数}}{\text{EFの計測期間中に発行された論文の総数}}
+\end{align*}
+で定義する．また，$\alpha$はPageRankに則り，$0.85$とすることが多い．
+\begin{align*}
+    \bm{\pi}^{\top} = \bm{\pi}^{\top}\bm{B}~\text{かつ}~ \bm{1}^{\top}\bm{\pi}=1
+\end{align*}
+を満たす$\bm{\pi} \in \mathbb{R}^N$がページランクとなる．
+ページランクを用いてEFを次のように計算する．
+\begin{align*}
+    \text{論文誌$i$のEF} = 100 \times \frac{( \bm{\pi}^{\top} \bm{C} )_i}{\sum_{\ell=1}^N ( \bm{\pi}^{\top} \bm{C} )_{\ell}}
+\end{align*}
+ただし，行列$\bm{C}$は行列$B$からテレポーテーション項を除いた行列で，次で定義する\cite{Masuda2013}．
+\begin{align*}
+    C_{ij} =
+    \begin{cases}
+        \frac{A_{ij}}{\sum_{\ell=1}^N A_{i\ell}}
+        &\quad \sum_{\ell=1}^N A_{i\ell} \geq 1\text{の場合．} \\
+        \\
+        0
+        &\quad \sum_{\ell=1}^N A_{i\ell} =0\text{の場合．} 
+    \end{cases}
+\end{align*}
+直感的には，遷移行列$\bm{B}$の定常分布ベクトル$\bm{\pi}$を，
+テレポーテーションを含まない遷移行列$\bm{C}$で更に1ステップ遷移させた状態分布
+に100をかけた数値がEFである．
+
+
+\section{Impact Factorとの比較}
+IFは次のように計算される．
+\begin{align*}
+    & \text{論文誌$i$のIF} = \\
+    & \frac{\sum_{\ell=1}^N A_{\ell i}}{\text{IFの計測期間中に論文誌$i$が発行した論文の総数}}．
+\end{align*}
+
+IFと比較したときのEFの長所短所について述べる．
+\subsection{EFの長所~\cite{Massimo2010}}
+\begin{itemize}
+    \item 基準1だけでなく，基準2,3も考慮している点．\\
+    計算式からわかるように，よく引用される論文誌ほど分子の項が大きくなり，IFの値は大きくなる．
+    これは基準1を反映している．一方，EFはPageRankと同様の性質をもつため，基準2,3にも則る．
+    これにより，EFは単なる被引用数だけでなく，どの論文誌から引用されたかまで考慮することができている．
+    \item EFの計測期間はIFの計測期間よりも長い点． \\
+    よく使われるIFの計測期間が2年であるのに対し，EFの計測期間は5年とIFの計測期間よりも長い．
+    計測期間が長いほど，引用数も増加するため，より広範な評価が可能となる．
+    \item 論文誌のセルフ引用を無視する点． \\
+    EFでは隣接行列$\bm{A}$の$A_{ii}$成分を0とするが，IFではとくにそのような操作は行わない．
+    $A_{ii}=0$とすることで，IFを高めたい論文誌が自誌の論文をセルフ引用するような
+    小技を阻止している．
+\end{itemize}
+
+\subsection{EFの短所~\cite{Masuda2013}}
+\begin{itemize}
+    \item 総被引用数と相関がある点．\\
+    EFもIFと同様に基準1を考慮しているため，単に総被引用数を増やせばEFのスコアが高くなる傾向がある．
+    EFはセルフ引用は除外するが，同出版社の別タイトル論文誌が論文誌間のセルフ引用のような
+    手の込んだ小技を阻止できない．
+\end{itemize}
+
+\section{EFの改善法の提案}
+さきほど述べたように，EFにはいくつかの短所がある．
+この節ではその短所を改善する方法について考察する．
+\par
+EFが抱える，同出版社の別タイトル論文誌が論文誌間のセルフ引用のような手の込んだ小技を阻止できない，
+という問題に注目する．
+これはウェブサイトの検索エンジン最適化（SEO）におけるリンクファームに類似している．
+リンクファームとは，
+ウェブサイト群が相互リンクすることでウェブサイト群全体のページランクを故意に増加させる，
+SEOスパムの一種である．
+EFはPageRankのアルゴリズムとほぼ同様であるため，
+PageRankのリンクファーム対策がそのままEFの問題点に適用できると考えられる．
+PageRankのリンクファーム対策として次の手法が提案されている~\cite{wu2005}．
+以下，EFの文脈に即して，~\cite{wu2005}のアルゴリズムの概要を述べる．
+\begin{itemize}
+    \item \textbf{SeedSetの検出}
+    \begin{enumerate}
+        \item 集合$In(i), Out(i)~i \in \pparen{1,\ldots,N}$を空集合で初期化する．
+        \item 論文誌$i$を引用する論文誌の集合を$In(i)$とする．
+        \item 論文誌$i$が引用する論文誌の集合を$Out(i)$とする．
+        \item $In(i) \cap Out(i)$の要素数がしきい値以上の場合，$i$をリンクファームの疑いがある論文誌として登録する．
+        \item 全ての$i \in \pparen{1,\ldots,N}$について以上を行う．
+        \item 疑わしいとされた論文誌の集合をSeedSetとする．
+    \end{enumerate}
+    \item \textbf{SeedSetの拡張}
+    \begin{enumerate}
+        \item 論文誌$i$が引用する論文誌の集合を$Out(i)$とする．
+        \item $Out(i) \cap \text{SeedSet}$の要素数がしきい値以上なら論文誌$i$をSeedSetに追加する．
+        \item 全ての$i \in \pparen{1,\ldots,N}$について以上を繰り返す．SeedSetが変化しなくなったら終了．
+    \end{enumerate}
+    \item \textbf{リンクファームへのペナルティ} 
+    \item[] 論文誌$i$がSeedSetに属する論文誌$j$を引用している場合，
+    \begin{itemize}
+        \item $A_{ij}=0$とする． \\または
+        \item 論文誌$i$がSeedSetに属する論文誌を$n$冊引用している場合，$A_{ij}=1/n$とする．
+    \end{itemize}
+\end{itemize}
+「SeedSetの検出」はリンクファームを形成する論文誌群は相互に引用することを利用している．
+「SeedSetの拡張」はSeedSetに属する論文誌を引用する論文誌も疑わしい可能性があることを利用している．
+最終的に得られたSeedSetがリンクファームに属する論文誌の集合を表す．
+「リンクファームへのペナルティ」については，
+リンクファームに属する論文誌のEFを直接下げる，などこの他の方法も考えられる．
+\par
+実際にこの手法を試してみることは行っていない．
+ただ，EFとPageRankアルゴリズムの類似性により，
+SEOスパム対策のアルゴリズムが論文誌の評価において現れる種々の問題に対して有効であると期待できそうである．
+EFの他の問題点についてもこのようなアナロジーが有効かどうかは引き続き調査していきたい．
+
+
+\section{Eigen Factor$\texttrademark$の原理}
+Eigen Factor$\texttrademark$（以下，EFと省略する）は，
+論文誌をランキング評価するための定量的な指標である．
+他の評価指標として．Impact Factor（以下，IFと省略する）が知られている．
+EFはIFの短所を改善したものと位置づけられる．
+IFとの比較については次の節で述べ，この節ではEFの原理について述べる．
+\par
+EFの原理はGoogleのPageRankの原理に類似している．
+論文誌の重要度を測る基準として，次の3つの基準が挙げられる．
+\begin{enumerate}
+    \item よく引用される雑誌は重要度が高い．
+    \item 重要な雑誌から引用される雑誌もまた重要度が高い．
+    \item 多く引用する雑誌（例：レビュー誌）からの引用は重要度が低い．
+\end{enumerate}
+これらの基準に照らしてEFは計算される．
+\par
+論文誌の総数は$N$で，それぞれの論文誌を添字集合$\pparen{1,2,\ldots,N}$によって識別する．
+論文誌$i$が論文誌$j$を引用している場合，$A_{ij}=0~(i\neq j)$．
+そうでない場合，$A_{ij}=0$として隣接行列$\bm{A} \in \mathbb{R}^{N \times N}$を定義する．
+ただし，$A_{ii}=0$とし，論文誌のセルフ引用はカウントしない．
+次に，行列$\bm{B} \in \mathbb{R}^{N \times N}$を以下のように定める．
+\begin{align*}
+    & B_{ij} = \\
+    & \text{（論文誌$i$から論文誌$j$への遷移確率）} = \\
+    & \begin{cases}
+        \alpha \frac{A_{ij}}{\sum_{\ell=1}^N A_{i\ell}} + (1-\alpha) \bm{1}\bm{\nu}^{\top}
+        &\quad \sum_{\ell=1}^N A_{i\ell} \geq 1\text{の場合．} \\
+        \\
+        \bm{1}\bm{\nu}^{\top}
+        &\quad \sum_{\ell=1}^N A_{i\ell} =0\text{の場合．} 
+    \end{cases}
+\end{align*}
+ここで，$\bm{\nu} \in \mathbb{R}^N$はパーソナル化ベクトルとよばれ，
+\begin{align*}
+    \nu_i = 
+    \frac{\text{EFの計測期間中に論文誌$i$が発行した論文の総数}}{\text{EFの計測期間中に発行された論文の総数}}
+\end{align*}
+で定義する．また，$\alpha$はPageRankに則り，$0.85$とすることが多い．
+\begin{align*}
+    \bm{\pi}^{\top} = \bm{\pi}^{\top}\bm{B}~\text{かつ}~ \bm{1}^{\top}\bm{\pi}=1
+\end{align*}
+を満たす$\bm{\pi} \in \mathbb{R}^N$がページランクとなる．
+ページランクを用いてEFを次のように計算する．
+\begin{align*}
+    \text{論文誌$i$のEF} = 100 \times \frac{( \bm{\pi}^{\top} \bm{C} )_i}{\sum_{\ell=1}^N ( \bm{\pi}^{\top} \bm{C} )_{\ell}}
+\end{align*}
+ただし，行列$\bm{C}$は行列$B$からテレポーテーション項を除いた行列で，次で定義する\cite{Masuda2013}．
+\begin{align*}
+    C_{ij} =
+    \begin{cases}
+        \frac{A_{ij}}{\sum_{\ell=1}^N A_{i\ell}}
+        &\quad \sum_{\ell=1}^N A_{i\ell} \geq 1\text{の場合．} \\
+        \\
+        0
+        &\quad \sum_{\ell=1}^N A_{i\ell} =0\text{の場合．} 
+    \end{cases}
+\end{align*}
+直感的には，遷移行列$\bm{B}$の定常分布ベクトル$\bm{\pi}$を，
+テレポーテーションを含まない遷移行列$\bm{C}$で更に1ステップ遷移させた状態分布
+に100をかけた数値がEFである．
+
+
+\section{Impact Factorとの比較}
+IFは次のように計算される．
+\begin{align*}
+    & \text{論文誌$i$のIF} = \\
+    & \frac{\sum_{\ell=1}^N A_{\ell i}}{\text{IFの計測期間中に論文誌$i$が発行した論文の総数}}．
+\end{align*}
+
+IFと比較したときのEFの長所短所について述べる．
+\subsection{EFの長所~\cite{Massimo2010}}
+\begin{itemize}
+    \item 基準1だけでなく，基準2,3も考慮している点．\\
+    計算式からわかるように，よく引用される論文誌ほど分子の項が大きくなり，IFの値は大きくなる．
+    これは基準1を反映している．一方，EFはPageRankと同様の性質をもつため，基準2,3にも則る．
+    これにより，EFは単なる被引用数だけでなく，どの論文誌から引用されたかまで考慮することができている．
+    \item EFの計測期間はIFの計測期間よりも長い点． \\
+    よく使われるIFの計測期間が2年であるのに対し，EFの計測期間は5年とIFの計測期間よりも長い．
+    計測期間が長いほど，引用数も増加するため，より広範な評価が可能となる．
+    \item 論文誌のセルフ引用を無視する点． \\
+    EFでは隣接行列$\bm{A}$の$A_{ii}$成分を0とするが，IFではとくにそのような操作は行わない．
+    $A_{ii}=0$とすることで，IFを高めたい論文誌が自誌の論文をセルフ引用するような
+    小技を阻止している．
+\end{itemize}
+
+\subsection{EFの短所~\cite{Masuda2013}}
+\begin{itemize}
+    \item 総被引用数と相関がある点．\\
+    EFもIFと同様に基準1を考慮しているため，単に総被引用数を増やせばEFのスコアが高くなる傾向がある．
+    EFはセルフ引用は除外するが，同出版社の別タイトル論文誌が論文誌間のセルフ引用のような
+    手の込んだ小技を阻止できない．
+\end{itemize}
+
+\section{EFの改善法の提案}
+さきほど述べたように，EFにはいくつかの短所がある．
+この節ではその短所を改善する方法について考察する．
+\par
+EFが抱える，同出版社の別タイトル論文誌が論文誌間のセルフ引用のような手の込んだ小技を阻止できない，
+という問題に注目する．
+これはウェブサイトの検索エンジン最適化（SEO）におけるリンクファームに類似している．
+リンクファームとは，
+ウェブサイト群が相互リンクすることでウェブサイト群全体のページランクを故意に増加させる，
+SEOスパムの一種である．
+EFはPageRankのアルゴリズムとほぼ同様であるため，
+PageRankのリンクファーム対策がそのままEFの問題点に適用できると考えられる．
+PageRankのリンクファーム対策として次の手法が提案されている~\cite{wu2005}．
+以下，EFの文脈に即して，~\cite{wu2005}のアルゴリズムの概要を述べる．
+\begin{itemize}
+    \item \textbf{SeedSetの検出}
+    \begin{enumerate}
+        \item 集合$In(i), Out(i)~i \in \pparen{1,\ldots,N}$を空集合で初期化する．
+        \item 論文誌$i$を引用する論文誌の集合を$In(i)$とする．
+        \item 論文誌$i$が引用する論文誌の集合を$Out(i)$とする．
+        \item $In(i) \cap Out(i)$の要素数がしきい値以上の場合，$i$をリンクファームの疑いがある論文誌として登録する．
+        \item 全ての$i \in \pparen{1,\ldots,N}$について以上を行う．
+        \item 疑わしいとされた論文誌の集合をSeedSetとする．
+    \end{enumerate}
+    \item \textbf{SeedSetの拡張}
+    \begin{enumerate}
+        \item 論文誌$i$が引用する論文誌の集合を$Out(i)$とする．
+        \item $Out(i) \cap \text{SeedSet}$の要素数がしきい値以上なら論文誌$i$をSeedSetに追加する．
+        \item 全ての$i \in \pparen{1,\ldots,N}$について以上を繰り返す．SeedSetが変化しなくなったら終了．
+    \end{enumerate}
+    \item \textbf{リンクファームへのペナルティ} 
+    \item[] 論文誌$i$がSeedSetに属する論文誌$j$を引用している場合，
+    \begin{itemize}
+        \item $A_{ij}=0$とする． \\または
+        \item 論文誌$i$がSeedSetに属する論文誌を$n$冊引用している場合，$A_{ij}=1/n$とする．
+    \end{itemize}
+\end{itemize}
+「SeedSetの検出」はリンクファームを形成する論文誌群は相互に引用することを利用している．
+「SeedSetの拡張」はSeedSetに属する論文誌を引用する論文誌も疑わしい可能性があることを利用している．
+最終的に得られたSeedSetがリンクファームに属する論文誌の集合を表す．
+「リンクファームへのペナルティ」については，
+リンクファームに属する論文誌のEFを直接下げる，などこの他の方法も考えられる．
+\par
+実際にこの手法を試してみることは行っていない．
+ただ，EFとPageRankアルゴリズムの類似性により，
+SEOスパム対策のアルゴリズムが論文誌の評価において現れる種々の問題に対して有効であると期待できそうである．
+EFの他の問題点についてもこのようなアナロジーが有効かどうかは引き続き調査していきたい．~\cite{NASA}

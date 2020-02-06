@@ -1,4 +1,3 @@
-% \ProvidesPackage{my_report}
 % \documentclass[10pt, a4paper]{jsarticle}
 % \documentclass[10pt, a4paper, draft]{jsarticle}                         % disable images
 
@@ -9,15 +8,12 @@
 \usepackage[table, xcdraw]{xcolor}                                      % color table
 
 \usepackage[dvipdfmx]{graphicx, hyperref}
-
 \hypersetup{                                                            % hyperref
- setpagesize=false,
- linkcolor=blue,
- urlcolor=blue,
- citecolor=blue,
- colorlinks=true,
- bookmarks=false,
- hypertexnames=true
+    setpagesize=false,
+    colorlinks=true,
+    bookmarks=false,
+    hypertexnames=true,
+    allcolors=blue
 }
 
 \usepackage{tikz}
@@ -33,11 +29,11 @@
 \usepackage{titlesec}                                                   % subsection font size
 \usepackage{listings}                                                   % program
 \lstset{%
-  language={C},
-  basicstyle={\ttfamily\footnotesize},
-  columns=[l]{fullflexible},
-  breaklines=true
-% , basicstyle=\ttfamily\footnotesize, frame=single
+    language={C},
+    basicstyle={\ttfamily\footnotesize},
+    columns=[l]{fullflexible},
+    breaklines=true
+    % , basicstyle=\ttfamily\footnotesize, frame=single
 }
 % \pagestyle{headings}                                                    % page number on/off
 \usepackage[T1]{fontenc}                                                % avoid mojibake
