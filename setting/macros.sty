@@ -1,39 +1,40 @@
-% temp
-\newcommand{\bmb}{ \bm{b} }
-\newcommand{\bmB}{ \bm{B} }
-\newcommand{\bme}{ \bm{e} }
-\newcommand{\bmn}{ \bm{n} }
-\newcommand{\bmI}{ \bm{I} }
-% \newcommand{\bmx}{ \bm{x} }
-% \newcommand{\bmX}{ \bm{X} }
-\newcommand{\bmW}{ \bm{W} }
-
-
-% paran
+% Paran
 \newcommand{\paren}[1]{ \left( #1 \right) }
 \newcommand{\pparen}[1]{ \lbrace #1 \rbrace }
 \newcommand{\bracket}[1]{ \left[ #1 \right] }
 
-% vector and matirx
-\newcommand{\x}{ \bm{x} }
-\newcommand{\X}{ \bm{X} }
+% Set
+\newcommand{\setN}{ \mathbb{N} }
+\newcommand{\setZ}{ \mathbb{Z} }
+\newcommand{\setR}{ \mathbb{R} }
+\newcommand{\order}{\mathcal{o}}
+\newcommand{\Order}{\mathcal{O}}
+\newcommand{\abrvset}[2]{\lbrace #1, \ldots, #2 \rbrace }
+\newcommand{\stset}[2]{\lbrace #1 \left\lvert #2 \rbrace }
 
-% set
-\newcommand{\N}{ \mathbb{N} }
-\newcommand{\Ord}{ \mathcal{O} }
-\newcommand{\R}{ \mathbb{R} }
-\newcommand{\Z}{ \mathbb{Z} }
+% Linear Algebra
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\adj}[1]{#1^{*}}
+\newcommand{\trsp}[1]{#1^{\top}}
+\newcommand{\onevec}{\bm{1}}
 
-% expectation
+% Probability
 \newcommand{\E}{ \mathbb{E} }
 \newcommand{\iid}{ \overset{\text{i.i.d}}{\sim} }
 
+% min max
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
 % abs
-\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
 \makeatletter
 
 % norm
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
 \makeatletter
 
 % opnorm
