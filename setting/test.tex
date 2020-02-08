@@ -164,7 +164,7 @@ EFの原理はGoogleのPageRankの原理に類似している．
 そうでない場合，$A_{ij}=0$として隣接行列$\bm{A} \in \mathbb{R}^{N \times N}$を定義する．
 ただし，$A_{ii}=0$とし，論文誌のセルフ引用はカウントしない．
 次に，行列$\bm{B} \in \mathbb{R}^{N \times N}$を以下のように定める．
-\begin{align*}
+\begin{align}
     & B_{ij} = \\
     & \text{（論文誌$i$から論文誌$j$への遷移確率）} = \\
     & \begin{cases}
@@ -174,23 +174,23 @@ EFの原理はGoogleのPageRankの原理に類似している．
         \bm{1}\bm{\nu}^{\top}
         &\quad \sum_{\ell=1}^N A_{i\ell} =0\text{の場合．} 
     \end{cases}
-\end{align*}
+\end{align}
 ここで，$\bm{\nu} \in \mathbb{R}^N$はパーソナル化ベクトルとよばれ，
-\begin{align*}
+\begin{align}
     \nu_i = 
     \frac{\text{EFの計測期間中に論文誌$i$が発行した論文の総数}}{\text{EFの計測期間中に発行された論文の総数}}
-\end{align*}
+\end{align}
 で定義する．また，$\alpha$はPageRankに則り，$0.85$とすることが多い．
-\begin{align*}
+\begin{align}
     \bm{\pi}^{\top} = \bm{\pi}^{\top}\bm{B}~\text{かつ}~ \bm{1}^{\top}\bm{\pi}=1
-\end{align*}
+\end{align}
 を満たす$\bm{\pi} \in \mathbb{R}^N$がページランクとなる．
 ページランクを用いてEFを次のように計算する．
-\begin{align*}
+\begin{align}
     \text{論文誌$i$のEF} = 100 \times \frac{( \bm{\pi}^{\top} \bm{C} )_i}{\sum_{\ell=1}^N ( \bm{\pi}^{\top} \bm{C} )_{\ell}}
-\end{align*}
+\end{align}
 ただし，行列$\bm{C}$は行列$B$からテレポーテーション項を除いた行列で，次で定義する\cite{Masuda2013}．
-\begin{align*}
+\begin{align}
     C_{ij} =
     \begin{cases}
         \frac{A_{ij}}{\sum_{\ell=1}^N A_{i\ell}}
@@ -199,7 +199,7 @@ EFの原理はGoogleのPageRankの原理に類似している．
         0
         &\quad \sum_{\ell=1}^N A_{i\ell} =0\text{の場合．} 
     \end{cases}
-\end{align*}
+\end{align}
 直感的には，遷移行列$\bm{B}$の定常分布ベクトル$\bm{\pi}$を，
 テレポーテーションを含まない遷移行列$\bm{C}$で更に1ステップ遷移させた状態分布
 に100をかけた数値がEFである．
@@ -207,10 +207,10 @@ EFの原理はGoogleのPageRankの原理に類似している．
 
 \section{Impact Factorとの比較}
 IFは次のように計算される．
-\begin{align*}
+\begin{align}
     & \text{論文誌$i$のIF} = \\
     & \frac{\sum_{\ell=1}^N A_{\ell i}}{\text{IFの計測期間中に論文誌$i$が発行した論文の総数}}．
-\end{align*}
+\end{align}
 
 IFと比較したときのEFの長所短所について述べる．
 \subsection{EFの長所~\cite{Massimo2010}}

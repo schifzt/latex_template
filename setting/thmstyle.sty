@@ -1,5 +1,20 @@
+% Description:
+% 	\begin{theorem}[定理の名前]
+% 	    定理の内容
+% 	\end{theorem}
+%
+% 	\begin{proof}[証明]
+% 		ほげ$abc$
+% 	\end{proof}
+%
+% Parameters:
+% 	[section]でセクションごとにカウントをリセットする
+% 	[theorem]でtheorem環境と同じカウンタを使う
+
 \usepackage{amsthm}
-\newtheoremstyle{my_thmstyle}   % name
+
+% [定理 1]的スタイルbracketstyleの定義
+\newtheoremstyle{bracketstyle}   % name
 {}                              % space above
 {}                              % space below
 {\normalfont}                   % body font
@@ -7,10 +22,24 @@
 {\bfseries}                     % theorem head font
 {}                              % punctuation after theorem head
 {5pt}                           % space after theorem head (default: 5pt)
-{\thmname{#1}\thmnumber{#2}\thmnote{\hspace{2pt}(#3)}}% theorem head spec
+{[\thmname{#1}\thmnumber{#2}]\thmnote{\hspace{2pt}(#3)}}% theorem head spec
 
-\theoremstyle{my_thmstyle}
-% \theoremstyle{definition}
+% proof環境の再定義
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+\pushQED{\qed}%
+\normalfont \topsep6\p@\@plus6\p@\relax
+\trivlist
+\item\relax
+{\itshape
+#1\@addpunct{.}}\hspace\labelsep\ignorespaces
+}{%
+\popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+% =========================================================
+\theoremstyle{bracketstyle}
 
 \newtheorem{theorem}{定理}[section]
 \newtheorem*{theorem*}{定理} 
@@ -22,12 +51,27 @@
 \newtheorem*{corollary*}{系} 
 \newtheorem{lemma}[theorem]{補題}
 \newtheorem*{lemmma*}{補題} 
-\newtheorem{remark}[theorem]{コメント}
-\newtheorem*{remark*}{コメント}
 \newtheorem{example}[theorem]{例}
 \newtheorem*{example*}{例}
-\newtheorem*{none}{}
-% \begin{theorem}[定理の名前]
-%     定理の内容
-% \end{theorem}
-% を本文に書けば使える
+\newtheorem{remark}{コメント}
+\newtheorem*{remark*}{コメント}
+\newtheorem{none}{コメント}
+\newtheorem*{none*}{コメント}
+
+% =========================================================
+
+% 色付き定理環境shadedtheorem
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\newenvironment{shadedtheorem}
+	{\begin{mdframed}[
+		backgroundcolor=lightgray!40,
+		linewidth=0pt,
+		innertopmargin=0pt,
+		innerbottommargin=2pt,
+		innerleftmargin=2pt,
+		innerrightmargin=2pt,
+	]\begin{theorem}}
+	{\end{theorem}\end{mdframed}}
+
