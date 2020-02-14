@@ -1,7 +1,7 @@
 # LaTeX template
-- [x] 1-column
-- [x] 2-column
-- [] slide(beamer)
++ [x] 1-column
++ [x] 2-column
++ [ ] slide(beamer)
 
 ## Install
 ```bash
@@ -29,11 +29,11 @@ mv ./latex_template ./new_project
     + グラフ描画プログラム：`data/`に置いてグラフは`fig/`に保存する
   
 ## TODO
-- [] biblatexまたはnatbibの導入
++ [ ] biblatexまたはnatbibの導入
     + 日本語対応がまだできていない
     + [`sieicej.bst`](https://www.ieice.org/ftp/)を使用している
 
-- [] Linux/Macではコンパイル可能だがWindowsできない問題
++ [ ] Linux/Macではコンパイル可能だがWindowsできない問題
     + 恐らくbibの`sie`スタイルがuplatexに対応してないから？
     + `sie` --> `abbrv`にする
     + `uplatex` --> `platex`にする
