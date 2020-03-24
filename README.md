@@ -13,20 +13,21 @@ mv ./latex_template ./new_project
 ## "paper" template
 ```
 ./
+├── fig/
+│   ├── figure.pdf
+│   └── plot.r
 ├── paper/
 │   ├── 1-column.tex
-│   └── 2-column.tex
+│   ├── 2-column.tex
 ├── program/
-│   ├── data/
-│   │   ├── fig/
-│   │   └── place_holder.csv
+│   ├── data.csv
 │   └── place_holder.py
 └── setting/
 ```
 + 1-columnと2-columnの2つのテンプレートを用意
 + ソースコードとtexファイルを一括管理できる
-    + データ生成プログラム：`program/`に置いてデータは`data/`に保存する
-    + グラフ描画プログラム：`data/`に置いてグラフは`fig/`に保存する
+    + データ生成プログラム：`program/`に置く．データもここに生成する．
+    + グラフ描画プログラム：`fig/`に置く．データは相対パスで`program/`を参照する．
   
 ## TODO
 + [ ] biblatexまたはnatbibの導入
