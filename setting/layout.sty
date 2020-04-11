@@ -21,7 +21,7 @@
     includeheadfoot=true,
     headsep=0.0cm,
     headheight=0.5cm,
-    footskip=0.5cm,
+    footskip=1cm,
     top=0.5cm,
     bottom=0.5cm,
     left=1.0cm,
@@ -29,17 +29,20 @@
 }
 
 % ==================================================================
-
-% 1ページ目にだけ適用するスタイル
 \usepackage{fancyhdr}
+
+% hrulefillを太さが設定できるように再定義する
+\renewcommand{\hrulefill}[1][0.4pt]{\leavevmode\leaders\hrule height #1 \hfill\kern\z@}
+
+% 1ページ目にだけ適用するスタイルを定義
 \fancypagestyle{firstpagestyle}
 {
 	\fancyhead{}
 	\fancyhead[L]{\topLeftBox}
 	\fancyhead[R]{\topRightBox}
-	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\headrulewidth}{0.0pt}
 }
-% 2ページ目以降に適用するスタイル
+% 2ページ目以降に適用するスタイルを定義
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
@@ -52,10 +55,11 @@
 \newcommand{\jsubtitle}[1]{\def\jsubtitle{#1}}
 
 % 既存の\maketitleコマンドをカスタム
-\let\OLDmaketitle\maketitle
-\let\OLDauthor\author
+\let\DEFAULTmaketitle\maketitle
 \renewcommand{\maketitle}{
 	\title{
+		\hspace*{2cm}\hrulefill[2pt]\hspace*{2cm}
+		\\
 		\jtitle
 		\ifx\jsubtitle\empty
 		\else
@@ -64,8 +68,11 @@
 			\normalsize\jsubtitle
 		}
 		\fi
+		\\
+		\hspace*{2cm}\hrulefill[2pt]\hspace*{2cm}
 	}
+
 	\date{\vspace{-10mm}}
-	\OLDmaketitle
+	\DEFAULTmaketitle
 	\thispagestyle{firstpagestyle}
 }
