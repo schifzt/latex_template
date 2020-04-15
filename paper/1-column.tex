@@ -1,13 +1,15 @@
 \documentclass[10pt, a4paper, uplatex]{jsarticle}
 \usepackage{"../setting/index"}
 \usepackage{"../setting/layout"}
-\graphicspath{{../fig/}}
+\usepackage[backend = biber, bibstyle = phys]{biblatex}
+\bibliography{refs.bib}
+\graphicspath{{../figure/}}
 
 \jtitle{title}
 \jsubtitle{}
 \author{author}
 \def\topLeftBox{}
-\def\topRightBox{}
+\def\topRightBox{研究会 2020/02/20}
 
 
 \begin{document}
@@ -36,6 +38,7 @@
     \caption{bbp相転移}
     \label{fig3}
 \end{figure}
+
 \input{../setting/test.tex}
 
 
@@ -46,15 +49,9 @@
 \subsection{}
 
 
-\bibliographystyle{../setting/sie}
+% \bibliographystyle{../setting/sie}
 % \bibliographystyle{abbrv}
-\bibliography{refs}
+% \bibliography{refs}
 
-% natbib
-% \bibliographystyle{rusnat}
-% \citet{hoge2020}
-
-% biblatex
-% \addbibresource{refs.bib}
-% \printbibliography[title=参考文献]
+\printbibliography[title=参考文献]
 \end{document}

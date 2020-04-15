@@ -21,11 +21,11 @@
     includeheadfoot=true,
     headsep=0.0cm,
     headheight=0.5cm,
-    footskip=1cm,
+    footskip=0.5cm,
     top=0.5cm,
     bottom=0.5cm,
-    left=1.0cm,
-    right=1.0cm
+    left=1cm,
+    right=1cm
 }
 
 % ==================================================================
@@ -54,12 +54,15 @@
 \newcommand{\jtitle}[1]{\def\jtitle{#1}}
 \newcommand{\jsubtitle}[1]{\def\jsubtitle{#1}}
 
+% 既存の\authorコマンドをカスタム
+\let\DEFAULTauthor\author
+\renewcommand{\author}[1]{\DEFAULTauthor{#1 \vspace{3mm}} }
+
 % 既存の\maketitleコマンドをカスタム
 \let\DEFAULTmaketitle\maketitle
 \renewcommand{\maketitle}{
 	\title{
-		\hspace*{2cm}\hrulefill[2pt]\hspace*{2cm}
-		\\
+		% \hspace*{2cm}\hrulefill[2pt]\hspace*{2cm}
 		\jtitle
 		\ifx\jsubtitle\empty
 		\else
@@ -69,9 +72,10 @@
 		}
 		\fi
 		\\
-		\hspace*{2cm}\hrulefill[2pt]\hspace*{2cm}
+		\vspace{-5mm}
+		\hspace*{1cm}\hrulefill[1.5pt]\hspace*{1cm}
+		\vspace{-3mm}
 	}
-
 	\date{\vspace{-10mm}}
 	\DEFAULTmaketitle
 	\thispagestyle{firstpagestyle}

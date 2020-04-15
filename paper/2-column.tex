@@ -1,7 +1,9 @@
 \documentclass[10pt, a4paper, twocolumn, uplatex]{jsarticle}
 \usepackage{"../setting/index"}
 \usepackage{"../setting/layout"}
-\graphicspath{{../fig/}}
+\usepackage[backend = biber, bibstyle = phys]{biblatex}
+\bibliography{refs.bib}
+\graphicspath{{../figure/}}
 
 \jtitle{title}
 \jsubtitle{}
@@ -37,16 +39,10 @@
 
 \subsection{}
 
-\bibliographystyle{../setting/sie}
+% \bibliographystyle{../setting/sie}
 % \bibliographystyle{abbrv}
-\bibliography{refs}
+% \bibliography{refs}
 
-% natbib
-% \bibliographystyle{rusnat}
-% \citet{hoge2020}
-
-% biblatex
-% \addbibresource{refs.bib}
-% \printbibliography[title=参考文献]
+\printbibliography[title=参考文献]
 \end{document}
 

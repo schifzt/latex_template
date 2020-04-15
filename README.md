@@ -30,14 +30,25 @@ mv ./latex_template ./new_project
     + グラフ描画プログラム：`fig/`に置く．データは相対パスで`program/`を参照する．
   
 ## TODO
-+ [ ] biblatexまたはnatbibの導入
-    + 日本語対応がまだできていない
-    + [`sieicej.bst`](https://www.ieice.org/ftp/)を使用している
-
-+ [ ] Linux/Macではコンパイル可能だがWindowsできない問題
++ [ ] Linux/MacOSではコンパイル可能だがWindowsでできない問題
     + 恐らくbibの`sie`スタイルがuplatexに対応してないから？
     + `sie` --> `abbrv`にする
     + `uplatex` --> `platex`にする
         + その場合，`[uplatex]{"../setting/sie"}` --> `[platex]{"../setting/sie"}`
++ [x] ~~biblatexまたはnatbibの導入~~
+    + 日本語対応がまだできていない
+    + [`sieicej.bst`](https://www.ieice.org/ftp/)を使用している
+
+### MWE for biblatex
++ bibファイルのauthorフィールドを`author = {{二郎 系}},`とする．`"二郎 系"`や`{二郎 系}`ではダメ．
+    + https://tex.stackexchange.com/questions/109064/is-there-a-difference-between-and-in-bibtex
+```tex
+\usepackage[backend = biber, bibstyle = phys]{biblatex}
+\bibliography{refs.bib}
+## 本文
+\printbibliography[title=参考文献]
+\end{document}
+```
+
 
 
