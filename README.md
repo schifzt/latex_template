@@ -5,8 +5,8 @@
 
 ## Install
 ```bash
-git clone https://schifzt@github.com/schifzt/latex_template
-rm -rf ./latex_template/.git
+git clone https://schifzt@github.com/schifzt/latex_template && \
+rm -rf ./latex_template/.git && \
 mv ./latex_template ./new_project
 ```
 
@@ -35,12 +35,9 @@ mv ./latex_template ./new_project
     + `sie` --> `abbrv`にする
     + `uplatex` --> `platex`にする
         + その場合，`[uplatex]{"../setting/sie"}` --> `[platex]{"../setting/sie"}`
-+ [x] ~~biblatexまたはnatbibの導入~~
-    + 日本語対応がまだできていない
-    + [`sieicej.bst`](https://www.ieice.org/ftp/)を使用している
 
-### MWE for biblatex
-+ bibファイルのauthorフィールドを`author = {{二郎 系}},`とする．`"二郎 系"`や`{二郎 系}`ではダメ．
+## MWE for biblatex
++ `bib`ファイルのauthorフィールドを`author = {{二郎 系}},`とする．`"二郎 系"`や`{二郎 系}`ではダメ．
     + https://tex.stackexchange.com/questions/109064/is-there-a-difference-between-and-in-bibtex
 ```tex
 \usepackage[backend = biber, bibstyle = phys]{biblatex}
@@ -49,6 +46,7 @@ mv ./latex_template ./new_project
 \printbibliography[title=参考文献]
 \end{document}
 ```
++ [`sieicej.bst`](https://www.ieice.org/ftp/)を使用したほうが楽なときもある．
 
 
 
