@@ -19,10 +19,10 @@
     \node[inner sep = 0pt] (plot) {\includegraphics[#1]{#2}};
 }
 % xlabel
-\newcommand{\xlabel}[2][\scriptsize]{
+\newcommand{\xlabel}[2][\large]{
     \node[anchor = north, inner sep = 0pt] at (plot.south) {#1 #2};
 }
 % ylabel
-\newcommand{\ylabel}[2][\scriptsize]{
+\newcommand{\ylabel}[2][\large]{
     \node[anchor = south, inner sep = 0pt, rotate=90] at (plot.west) {#1 #2};
 }

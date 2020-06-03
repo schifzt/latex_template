@@ -13,7 +13,7 @@ mv ./latex_template ./new_project
 ## "paper" template
 ```
 ./
-├── fig/
+├── figure/
 │   ├── figure.pdf
 │   └── plot.r
 ├── paper/
@@ -27,7 +27,7 @@ mv ./latex_template ./new_project
 + 1-columnと2-columnの2つのテンプレートを用意
 + ソースコードとtexファイルを一括管理できる
     + データ生成プログラム：`program/`に置く．データもここに生成する．
-    + グラフ描画プログラム：`fig/`に置く．データは相対パスで`program/`を参照する．
+    + グラフ描画プログラム：`figure/`に置く．データは相対パスで`program/`を参照する．
   
 ## TODO
 + [ ] Linux/MacOSではコンパイル可能だがWindowsでできない問題
@@ -37,8 +37,6 @@ mv ./latex_template ./new_project
         + その場合，`[uplatex]{"../setting/sie"}` --> `[platex]{"../setting/sie"}`
 
 ## MWE for biblatex
-+ `bib`ファイルのauthorフィールドを`author = {{二郎 系}},`とする．`"二郎 系"`や`{二郎 系}`ではダメ．
-    + https://tex.stackexchange.com/questions/109064/is-there-a-difference-between-and-in-bibtex
 ```tex
 \usepackage[backend = biber, bibstyle = phys]{biblatex}
 \bibliography{refs.bib}
@@ -46,6 +44,8 @@ mv ./latex_template ./new_project
 \printbibliography[title=参考文献]
 \end{document}
 ```
++ `bib`ファイルのauthorフィールドを`author = {{二郎 系}},`とする．`"二郎 系"`や`{二郎 系}`ではダメ．
+    + https://tex.stackexchange.com/questions/109064/is-there-a-difference-between-and-in-bibtex
 + [`sieicej.bst`](https://www.ieice.org/ftp/)を使用したほうが楽なときもある．
 
 
