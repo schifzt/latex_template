@@ -62,7 +62,7 @@
 \let\DEFAULTmaketitle\maketitle
 \renewcommand{\maketitle}{
 	\title{
-		% \hspace*{2cm}\hrulefill[2pt]\hspace*{2cm}
+		\vspace{-5mm}
 		\jtitle
 		\ifx\jsubtitle\empty
 		\else
@@ -73,8 +73,6 @@
 		\fi
 		\\
 		\vspace{-5mm}
-		\hspace*{1cm}\hrulefill[1.5pt]\hspace*{1cm}
-		\vspace{-3mm}
 	}
 	\date{\vspace{-10mm}}
 	\DEFAULTmaketitle
