@@ -9,7 +9,9 @@
 %
 % Parameters:
 % 	[section]でセクションごとにカウントをリセットする
+%		[subsection]もある
 % 	[theorem]でtheorem環境と同じカウンタを使う
+%	\setcounter{section}{3}でカウンタを初期化
 
 \usepackage{amsthm}
 
@@ -53,6 +55,8 @@
 \newtheorem*{lemmma*}{補題} 
 \newtheorem{example}[theorem]{例}
 \newtheorem*{example*}{例}
+\newtheorem{exercise}[theorem]{演習}
+\newtheorem*{exercise*}{演習}
 \newtheorem{remark}{コメント}
 \newtheorem*{remark*}{コメント}
 \newtheorem{none}{コメント}
