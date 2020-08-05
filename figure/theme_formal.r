@@ -48,12 +48,10 @@ theme_m <- function() {
 
 			# ==============================
 
-			# Remove grid line (optional)
-  			panel.grid = element_blank(),
-
+			# grid line (remove)
+  			# panel.grid = element_blank(),
 			# grid line (dot)
-  			# panel.grid = element_line(size = 2, linetype = "1F", color = "black"),
-  			# panel.grid.minor = element_blank(),
+  			panel.grid = element_line(size = 2, linetype = "dotted", color = "gray"),
 
 			# ==============================
 
