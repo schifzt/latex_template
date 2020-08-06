@@ -1,4 +1,7 @@
+library(tidyquant)
+library(dplyr)
 library(ggplot2)
+
 setwd("/Users/admin/Dropbox/classes/RL2020/report/figure")
 source(file = "./theme_formal.r")
 
@@ -9,11 +12,15 @@ df <- read.csv("../program/out.csv", header = TRUE, sep = ",")
 # 抽出
 df2 <- subset(df, timeout == 1)
 
-# # 文字列化してカテゴリ変数に変換
+# 文字列化してカテゴリ変数に変換
 # df$p <- as.character(df$p)
 
-# # レベル要素を指定する
+# レベル要素を指定する
 # df$p <- ordered(df$p , levels = as.character(sort(as.double(unique(df$p)))))
+
+# --------------------
+# main
+# --------------------
 
 g = ggplot(df,
            aes_string(x = "episode",
@@ -27,8 +34,8 @@ g <- g +
 
 g <- g +
   geom_line()
-# geom_point()
 
+# 抽出したdf2をハイライト
 g <-
   g + geom_point(
     data = df2,
@@ -36,6 +43,10 @@ g <-
     color = "blue",
     size = 2
   )
+
+
+# 移動平均
+# g <- g + geom_ma(ma_fun = SMA, n = 10, color = "black", linetype="solid")
 
 # g <- g + scale_y_log10()
 
