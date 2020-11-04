@@ -6,13 +6,20 @@
 \iffalse
 \fi
 
+
 \begin{document}
 \maketitle
 
 \tableofcontents
 % \columnseprule=0. 2mm
 
-% multiple align
+% align環境の行間隔
+\setlength{\abovedisplayskip}{2pt}
+\setlength{\belowdisplayskip}{2pt}
+\setlength{\abovedisplayshortskip}{2pt}
+\setlength{\belowdisplayshortskip}{2pt}
+
+% multiple alignment
 \begin{alignat}{3}
     & a && b && c \\
     & a && b && c 
