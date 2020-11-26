@@ -1,5 +1,5 @@
 % Description:
-%   This is a 1-column style file, assuming to use
+%   This is a style file assuming to use
 %   	\documentclass[10pt, a4paper, uplatex]{jsarticle}
 % 	Or
 %   	\documentclass[10pt, a4paper, twocolumn, uplatex]{jsarticle}
@@ -8,19 +8,38 @@
 % subsection/subsubsectionをサンセリフ，太字，左揃えにする
 \usepackage{titlesec}
 \titleformat*{\section}{\large\bfseries\raggedright}
-\titleformat*{\subsection}{\large\bfseries\raggedright}
-\titleformat*{\subsubsection}{\bfseries}
+\titleformat*{\subsection}{\normalsize\bfseries\raggedright}
+\titleformat*{\subsubsection}{\normalsize\bfseries}
+
+% headingの行間隔
+\titlespacing{\section}{0pt}{\parskip}{-\parskip}
+\titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
+\titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
+
+% itemize前後の行間を0にする
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep, topsep=0pt}
+\setlist[enumerate]{noitemsep, topsep=0pt}
+\setlist[description]{noitemsep, topsep=0pt}
+
+% align環境の行間隔
+\AtBeginDocument{
+  \abovedisplayskip     =0.5\abovedisplayskip
+  \abovedisplayshortskip=0.5\abovedisplayshortskip
+  \belowdisplayskip     =0.5\belowdisplayskip
+  \belowdisplayshortskip=0.5\belowdisplayshortskip
+}
 
 % ==================================================================
 
-% 余白レイアウト
+% 余白レイアウト（ここは固定のまま変えない）
 \usepackage{geometry}
 \usepackage{afterpage}
 \newgeometry{
     a4paper,
     includeheadfoot=true,
-    headsep=0.0cm,
-    headheight=0.5cm,
+	headsep=-1.0cm,
+	headheight=1.0cm,
     footskip=0.5cm,
     top=0.5cm,
     bottom=0.5cm,
@@ -42,13 +61,13 @@
 	\fancyhead[R]{\topRightBox}
 	\renewcommand{\headrulewidth}{0.0pt}
 }
-% 2ページ目以降に適用するスタイルを定義
+% 全ページに適用するスタイルを定義
 \pagestyle{fancy}
 \fancyhead{}
 \fancyfoot{}
 \fancyfoot[R]{---\space\thepage\space---}
 \renewcommand{\headrulewidth}{0.0pt}
-% \renewcommand{\footrulewidth}{0.4pt} % line width at foot
+% \renewcommand{\footrulewidth}{0.0pt} % horizontal line width at foot
 
 % \jtitle, jsubtitle変数を定義
 \newcommand{\jtitle}[1]{\def\jtitle{#1}}
@@ -62,7 +81,7 @@
 \let\DEFAULTmaketitle\maketitle
 \renewcommand{\maketitle}{
 	\title{
-		\vspace{-5mm}
+		\vspace{0mm}							 % topRightBoxで改行するときはここを調節する
 		\jtitle
 		\ifx\jsubtitle\empty
 		\else
@@ -72,7 +91,7 @@
 		}
 		\fi
 		\\
-		\vspace{-5mm}
+		\vspace{-15mm}							 % タイトル下の行間はここを調節する
 	}
 	\date{\vspace{-10mm}}
 	\DEFAULTmaketitle

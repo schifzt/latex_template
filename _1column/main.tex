@@ -1,5 +1,6 @@
-\documentclass[10pt, a4paper, twocolumn, uplatex]{jsarticle}
-\usepackage{"../setting/index"}
+\documentclass[10pt, a4paper, uplatex]{jsarticle}
+\usepackage{../setting/index}
+\usepackage{./style}
 
 \begin{document}
 
@@ -12,12 +13,14 @@
 %     \item[所属：]
 % \end{description}
 
-\input{../setting/test.tex}
+\input{\DOCROOT/setting/test.tex}
 
 % \setcounter{section}{5}
 \section{}
 
 \subsection{}
+\subsection*{\rule{0.7em}{0.7em} 黒四角を見出しのアクセントにする}
+
 
 % \bibliographystyle{../setting/sie}
 % \bibliographystyle{abbrv}
@@ -25,4 +28,3 @@
 
 \printbibliography[title=参考文献]
 \end{document}
-

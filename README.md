@@ -2,6 +2,7 @@
 + [x] 1-column
 + [x] 2-column
 + [ ] slide(beamer)
++ [ ] slide(ppt)
 
 ## Install
 ```bash
