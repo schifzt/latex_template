@@ -3,7 +3,7 @@ library(dplyr)
 library(ggplot2)
 
 setwd("/Users/admin/Dropbox/classes/RL2020/report/figure")
-source(file = "./theme_formal.r")
+source(file = "./theme_m.r")
 
 # dfの作成
 df <- read.csv("../program/out.csv", header = TRUE, sep = ",")
@@ -40,7 +40,7 @@ g <-
   g + geom_point(
     data = df2,
     aes_string(x = "episode", y = "cum_r"),
-    color = "blue",
+    color = mblue,
     size = 2
   )
 

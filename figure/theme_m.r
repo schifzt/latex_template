@@ -9,6 +9,9 @@
 # 	  scale_x_continuous(sec.axis = dup_axis()) +
 # 	  scale_y_continuous(sec.axis = dup_axis())
 
+mred <- "#CD313D"
+mblue <- "#4B75B5"
+
 theme_m <- function() {
 	text_size <- 14
 	return(
