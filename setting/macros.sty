@@ -1,14 +1,19 @@
-% temp
-\newcommand{\bmb}{ \bm{b} }
-\newcommand{\bmB}{ \bm{B} }
-\newcommand{\bme}{ \bm{e} }
-\newcommand{\bmn}{ \bm{n} }
-\newcommand{\bmI}{ \bm{I} }
-% \newcommand{\bmx}{ \bm{x} }
-% \newcommand{\bmX}{ \bm{X} }
-\newcommand{\bmD}{ \bm{D} }
-\newcommand{\bmy}{ \bm{y} }
+% alphabet
+\newcommand{\bmx}{ \bm{x} }
+\newcommand{\bmX}{ \bm{X} }
+\newcommand{\hbmx}{ \widehat{\bm{x}} }
+\newcommand{\hbmX}{ \widehat{\bm{X}} }
+\newcommand{\mcx}{ \mathcal{x} }
+\newcommand{\mcX}{ \mathcal{X} }
+\newcommand{\hmcx}{ \widehat{\mathcal{x}} } 
+\newcommand{\hmcX}{ \widehat{\mathcal{X}} } 
 
+% commma + space
+\newcommand*\mathwords{\textnormal}
+
+% override tilde & hat
+\renewcommand{\tilde}[1]{ \widetilde{#1} }
+\renewcommand{\hat}[1]{ \widehat{#1} }
 
 % paran
 \newcommand{\paren}[1]{ \left( #1 \right) }
@@ -16,21 +21,18 @@
 \newcommand{\bracket}[1]{ \left[ #1 \right] }
 \newcommand{\pangle}[1]{ \langle #1 \rangle }
 
-% vector and matirx
-\newcommand{\x}{ \bm{x} }
-\newcommand{\X}{ \bm{X} }
-
 % linear algebra
 \DeclareMathOperator{\Tr}{Tr}
 
 % set
-\newcommand{\bN}{ \mathbb{N} }
-\newcommand{\Ord}{ \mathcal{O} }
-\newcommand{\bR}{ \mathbb{R} }
-\newcommand{\bZ}{ \mathbb{Z} }
+\newcommand{\bbN}{ \mathbb{N} }
+\newcommand{\bbR}{ \mathbb{R} }
+\newcommand{\bbZ}{ \mathbb{Z} }
 
 % expectation
-\newcommand{\bE}{ \mathbb{E} }
+\newcommand{\bbP}{ \mathbb{P} }
+\newcommand{\bbE}{ \mathbb{E} }
+\newcommand{\mcP}{ \mathcal{P} }
 \newcommand{\iid}{ \overset{\text{i.i.d}}{\sim} }
 
 % abs

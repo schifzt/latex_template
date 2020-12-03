@@ -39,8 +39,8 @@
     a4paper,
     includeheadfoot=true,
 	headsep=-1.0cm,
-	headheight=1.0cm,
-    footskip=0.5cm,
+	headheight=1.5cm,
+    footskip=0.8cm,
     top=0.5cm,
     bottom=0.5cm,
     left=1cm,
@@ -81,7 +81,7 @@
 \let\DEFAULTmaketitle\maketitle
 \renewcommand{\maketitle}{
 	\title{
-		\vspace{0mm}							 % topRightBoxで改行するときはここを調節する
+		\vspace{-3mm}							 % topRightBoxで改行するときはここを調節する
 		\jtitle
 		\ifx\jsubtitle\empty
 		\else
@@ -91,7 +91,7 @@
 		}
 		\fi
 		\\
-		\vspace{-15mm}							 % タイトル下の行間はここを調節する
+		\vspace{-12mm}							 % タイトル下の行間はここを調節する
 	}
 	\date{\vspace{-10mm}}
 	\DEFAULTmaketitle
