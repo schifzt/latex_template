@@ -37,12 +37,20 @@ theme_m <- function() {
         legend.text = element_text(size = text_size),
         legend.title = element_blank(),
         
-        # Legend float position
+       # Legend float position
+        ## top-left
         # legend.position = c(.00, .95),
         # legend.justification = c("left", "top"),
         # legend.box.just = "top",
-        # legend.margin = margin(6, 6, 6, 6),
-        # legend.box = "horizontal",
+
+        ## bottom-right
+        legend.position = c(.95, .10),
+        legend.justification = c("right", "bottom"),
+        legend.box.just = "bottom",
+
+        legend.margin = margin(6, 6, 6, 6),
+        legend.box = "horizontal",
+        legend.key.width = unit(2,"cm"),
         
         # Legened color(white + frame)
         # legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour="black"),

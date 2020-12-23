@@ -13,6 +13,16 @@
 \tableofcontents
 % \columnseprule=0. 2mm
 
+% カッコの途中で改行
+%   \leftは改行を認めないため，\right .（ピリオド）で改行前に疑似ペアをおいて閉じる．\rightも同様
+%   https://stackoverflow.com/questions/36668334/right-doesnt-work-on-latex-multiline-equation
+\begin{align}
+    & \biggl\{ \biggr .
+    a \\
+    & b \\
+    \biggl . \biggr\}
+\end{align}
+
 % multiple alignment
 \begin{alignat}{3}
     & a && b && c \\
