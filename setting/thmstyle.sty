@@ -14,6 +14,7 @@
 %	\setcounter{section}{3}でカウンタを初期化
 
 \usepackage{amsthm}
+\usepackage{mdframed}
 
 % [定理 1]的スタイルbracketstyleの定義
 \newtheoremstyle{bracketstyle}   % name
@@ -24,7 +25,7 @@
 {\bfseries}                     % theorem head font
 {}                              % punctuation after theorem head
 {5pt}                           % space after theorem head (default: 5pt)
-{\underline{{\bf\thmname{#1} \thmnumber{#2}}} \thmnote{\hspace{2pt}(#3)}}% theorem head spec
+{\underline{{\bf\thmname{#1} \thmnumber{#2}}} \thmnote{\hspace{2pt} #3 \newline}}% theorem head spec
 
 % proof環境の再定義
 \makeatletter
@@ -43,40 +44,52 @@
 % =========================================================
 \theoremstyle{bracketstyle}
 
-\newtheorem{lemma}{補題}[section]
-\newtheorem{theorem}[lemma]{定理}
-\newtheorem{definition}{定義}[section]
-
-% \newtheorem*{theorem*}{定理} 
-% \newtheorem*{definition*}{定義}
-% \newtheorem{proposition}[theorem]{命題}
-% \newtheorem*{proposition*}{命題} 
-% \newtheorem{corollary}[theorem]{系}
-% \newtheorem*{corollary*}{系} 
-% \newtheorem*{lemmma*}{補題} 
-% \newtheorem{example}[theorem]{例}
-% \newtheorem*{example*}{例}
-% \newtheorem{exercise}[theorem]{演習}
-% \newtheorem*{exercise*}{演習}
-\newtheorem{remark}{補足}[section]
+\newtheorem{theo}{定理}[section]
+\newtheorem*{theorem*}{定理} 
+\newenvironment{theorem}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{theo}}{\end{theo}\end{mdframed}}
+\newtheorem{defi}{定義}[section]
+\newtheorem*{definition*}{定義}
+\newenvironment{definition}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{defi}}{\end{defi}\end{mdframed}}
+\newtheorem{prop}[theo]{命題}
+\newtheorem*{proposition*}{命題} 
+\newenvironment{proposition}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{prop}}{\end{prop}\end{mdframed}}
+\newtheorem{coro}[theo]{系}
+\newtheorem*{corollary*}{系} 
+\newenvironment{corollary}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{coro}}{\end{coro}\end{mdframed}}
+\newtheorem{lemm}{補題}
+\newtheorem*{lemmma*}{補題} 
+\newenvironment{lemma}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{lemm}}{\end{lemm}\end{mdframed}}
+\newtheorem{exam}[theo]{例}
+\newtheorem*{example*}{例}
+\newenvironment{example}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{exam}}{\end{exam}\end{mdframed}}
+\newtheorem{exer}[theo]{演習}
+\newtheorem*{exercise*}{演習}
+\newenvironment{exercise}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{exer}}{\end{exer}\end{mdframed}}
+\newtheorem{rema}{補足}[section]
 \newtheorem*{remark*}{コメント}
+\newenvironment{remma}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{rema}}{\end{rema}\end{mdframed}}
 \newtheorem{none}{コメント}
 \newtheorem*{none*}{コメント}
+
+
+
+
+
 
 % =========================================================
 
 % 色付き定理環境shadedtheorem
-\usepackage{xcolor}
-\usepackage{mdframed}
+% \usepackage{xcolor}
+% \usepackage{mdframed}
 
-\newenvironment{shadedtheorem}
-	{\begin{mdframed}[
-		backgroundcolor=lightgray!40,
-		linewidth=0pt,
-		innertopmargin=0pt,
-		innerbottommargin=2pt,
-		innerleftmargin=2pt,
-		innerrightmargin=2pt,
-	]\begin{theorem}}
-	{\end{theorem}\end{mdframed}}
+% \newenvironment{shadedtheorem}
+% 	{\begin{mdframed}[
+% 		backgroundcolor=lightgray!40,
+% 		linewidth=0pt,
+% 		innertopmargin=0pt,
+% 		innerbottommargin=2pt,
+% 		innerleftmargin=2pt,
+% 		innerrightmargin=2pt,
+% 	]\begin{theorem}}
+% 	{\end{theorem}\end{mdframed}}
 
