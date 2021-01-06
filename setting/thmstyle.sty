@@ -17,7 +17,7 @@
 \usepackage{mdframed}
 
 % [定理 1]的スタイルbracketstyleの定義
-\newtheoremstyle{bracketstyle}   % name
+\newtheoremstyle{mythmstyle}   % name
 {}                              % space above
 {}                              % space below
 {\normalfont}                   % body font
@@ -42,32 +42,32 @@
 \makeatother
 
 % =========================================================
-\theoremstyle{bracketstyle}
+\theoremstyle{mythmstyle}
 
 \newtheorem{theo}{定理}[section]
 \newtheorem*{theorem*}{定理} 
-\newenvironment{theorem}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{theo}}{\end{theo}\end{mdframed}}
+\newenvironment{theorem}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{theo}}{\end{theo}\end{mdframed}}
 \newtheorem{defi}{定義}[section]
 \newtheorem*{definition*}{定義}
-\newenvironment{definition}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{defi}}{\end{defi}\end{mdframed}}
+\newenvironment{definition}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{defi}}{\end{defi}\end{mdframed}}
 \newtheorem{prop}[theo]{命題}
 \newtheorem*{proposition*}{命題} 
-\newenvironment{proposition}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{prop}}{\end{prop}\end{mdframed}}
+\newenvironment{proposition}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{prop}}{\end{prop}\end{mdframed}}
 \newtheorem{coro}[theo]{系}
 \newtheorem*{corollary*}{系} 
-\newenvironment{corollary}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{coro}}{\end{coro}\end{mdframed}}
+\newenvironment{corollary}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{coro}}{\end{coro}\end{mdframed}}
 \newtheorem{lemm}{補題}
 \newtheorem*{lemmma*}{補題} 
-\newenvironment{lemma}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{lemm}}{\end{lemm}\end{mdframed}}
+\newenvironment{lemma}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{lemm}}{\end{lemm}\end{mdframed}}
 \newtheorem{exam}[theo]{例}
 \newtheorem*{example*}{例}
-\newenvironment{example}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{exam}}{\end{exam}\end{mdframed}}
+\newenvironment{example}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{exam}}{\end{exam}\end{mdframed}}
 \newtheorem{exer}[theo]{演習}
 \newtheorem*{exercise*}{演習}
-\newenvironment{exercise}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{exer}}{\end{exer}\end{mdframed}}
+\newenvironment{exercise}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{exer}}{\end{exer}\end{mdframed}}
 \newtheorem{rema}{補足}[section]
 \newtheorem*{remark*}{コメント}
-\newenvironment{remma}{\begin{mdframed}[backgroundcolor=lightgray!35, linewidth=0pt]\begin{rema}}{\end{rema}\end{mdframed}}
+\newenvironment{remma}{\begin{mdframed}[backgroundcolor=lightgray!30, linewidth=0pt]\begin{rema}}{\end{rema}\end{mdframed}}
 \newtheorem{none}{コメント}
 \newtheorem*{none*}{コメント}
 
