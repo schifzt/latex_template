@@ -1,18 +1,16 @@
 \documentclass[10pt, a4paper,dvipdfmx, uplatex]{jsarticle}
+\usepackage{docmute}
 \usepackage{../setting/index}
-\usepackage{../setting/layout}
 \usepackage[backend = biber, bibstyle = phys]{biblatex}
 \bibliography{refs.bib}
-\graphicspath{{../figure/}}
 
 
-\jtitle{すーーーーーーーーーーぱーーーーーーーーー長いタイトル}
+\jtitle{}
 \jsubtitle{}
 \author{}
 \def\topLeftBox{}
 \def\topRightBox{研究会 2020/02/21 \\author}
 
-\newcommand{\pref}[1]{（\ref{#1}）}
 \newcommand{\eq}[1]{式（\ref{#1}）}
 \newcommand{\fig}[1]{図\ref{#1} }
 \newcommand{\tbl}[1]{表\ref{#1} }
@@ -20,29 +18,30 @@
 \renewcommand{\tablename}{表}
 \renewcommand{\refname}{参考文献}
 \renewcommand{\bibname}{参考文献}
-\renewcommand{\theequation}{\arabic{equation}}                          % 式番号(1),(2),(3)
-% \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}       % 式番号(1.1),(1.2),(2.3)
+% \numberwithn{theorem}{section}
+\numberwithin{equation}{section}                 % 式番号(1.1),(1.2),(2.3)
+\numberwithin{figure}{section}                   % 図番号(1.1),(1.2),(2.3)
+\numberwithin{table}{section}                    % 図番号(1.1),(1.2),(2.3)
+
+% minimal
+% \usepackage{amssymb, mathtools, bm, graphicx, tikz, cuted, docmute}
+% \usepackage{macros, tikzincludegraphics}
+% \newcommand{\eq}[1]{(\ref{#1})}
+% \newcommand{\fig}[1]{\figurename~\ref{#1}}
+% \newcommand{\tbl}[1]{Table \ref{#1}}
+% \graphicspath{{./figure/}}
+% \newtheorem{theorem}{Theorem}
+% \newtheorem{proposition}{Proposition}
+% \newtheorem{assumption}{Assumption}
+% \newtheorem{problem}{Problem}
+% end
 
 
 \begin{document}
 
 \maketitle
 
-% \section*{著者}
-% \begin{description}
-%     \item[氏名：]
-%     \item[学籍番号：] 
-%     \item[所属：]
-% \end{description}
-
 \input{\DOCROOT/setting/test.tex}
-
-% \setcounter{section}{5}
-\section{}
-
-\subsection{}
-\subsection*{\rule{0.7em}{0.7em} 黒四角を見出しのアクセントにする}
-
 
 % \bibliographystyle{../setting/sie}
 % \bibliographystyle{abbrv}

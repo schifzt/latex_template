@@ -2,12 +2,11 @@
 % \documentclass[10pt, a4paper, draft]{jsarticle}                         % disable images
 
 \usepackage{amsmath, amssymb, mathtools}                                % greek alphabet
-\allowdisplaybreaks                                                     % new page equation break control
-\usepackage {autobreak}
 \usepackage{bm}                                                         % math formula
-\usepackage[table, xcdraw]{xcolor}                                      % color table
-
+\usepackage[T1]{fontenc}                                                % avoid mojibake
 \usepackage{graphicx}
+\usepackage{tikz}
+% \usepackage[table, xcdraw]{xcolor}                                      % color table
 \usepackage{hyperref}
 \hypersetup{                                                            % hyperref
     setpagesize=false,
@@ -16,21 +15,14 @@
     hypertexnames=true,
     allcolors=blue
 }
-
 \usepackage{pxjahyper}                                                  % bookmark index
-
-\usepackage{tikz}
 \usepackage[hang, small, bf]{caption}                                   % image multi caption
 \usepackage[subrefformat=parens, font=footnotesize]{subcaption}
 \captionsetup{compatibility=false}
-
 \usepackage{ascmac}
 \usepackage[english]{babel}                                             % english label, date etc
 \usepackage{siunitx}                                                    % SI unit system
-
-\usepackage{bm}                                                         % matrix vector
 \usepackage{titlesec}                                                   % subsection font size
-
 \usepackage{listings}                                                   % source code
 \usepackage{color}
 \definecolor{mycommentcolor}{rgb}{0,0.6,0}
@@ -51,9 +43,8 @@
   numberstyle={\tiny \color{black}},% size of the numbers
   numbersep=9pt,xleftmargin=2em
 }
-
 \pagestyle{headings}                                                    % page number on/off
-\usepackage[T1]{fontenc}                                                % avoid mojibake
 \usepackage{latexsym}                                                   % symbol extension
-
+\usepackage {autobreak}
+\allowdisplaybreaks                                                     % new page equation break control
 % \usepackage[noadjust]{cite}    

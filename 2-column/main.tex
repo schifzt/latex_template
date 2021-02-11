@@ -1,6 +1,5 @@
 \documentclass[10pt, a4paper, twocolumn, dvipdfmx, uplatex]{jsarticle}
 \usepackage{../setting/index}
-\usepackage{../setting/layout}
 \usepackage[backend = biber, bibstyle = phys]{biblatex}
 \bibliography{refs.bib}
 \graphicspath{{../figure/}}
@@ -20,8 +19,10 @@
 \renewcommand{\tablename}{表}
 \renewcommand{\refname}{参考文献}
 \renewcommand{\bibname}{参考文献}
-\renewcommand{\theequation}{\arabic{equation}}                          % 式番号(1),(2),(3)
-% \renewcommand{\theequation}{\arabic{section}.\arabic{equation}}       % 式番号(1.1),(1.2),(2.3)
+% \numberwithin{theorem}{section}
+\numberwithin{equation}{section}                 % 式番号(1.1),(1.2),(2.3)
+\numberwithin{figure}{section}                   % 図番号(1.1),(1.2),(2.3)
+\numberwithin{table}{section}                    % 図番号(1.1),(1.2),(2.3)
 
 
 \begin{document}

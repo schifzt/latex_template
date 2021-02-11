@@ -10,6 +10,13 @@
 \begin{document}
 \maketitle
 
+% \setcounter{section}{5}
+\section{}
+
+\subsection{}
+\subsection*{\rule{0.7em}{0.7em} 黒四角を見出しのアクセントにする}
+
+
 \tableofcontents
 % \columnseprule=0. 2mm
 
@@ -22,23 +29,26 @@
     & b \\
     \biggl . \biggr\}
 \end{align}
-
-% multiple alignment
-\begin{alignat}{3}
-    & a && b && c \\
-    & a && b && c 
-\end{alignat}
-
-% 連立方程式
+% subscriptの中で改行したいときは，\substack{}でくくる
 \begin{align}
-    \left\{
-        \begin{array}{llll}
-            i_2=\frac{v_2}{R_2} \\
-            i_3=\frac{v_3}{R_3} \\
-        \end{array}
-    \right.
+    \min_{\substack {a \\ b }}
 \end{align}
 
+% multiple alignment
+% && を使うと全部左揃えになる．https://tex.stackexchange.com/questions/159723/what-does-a-double-ampersand-mean-in-latex
+\begin{align}
+    & a && b && c \\
+    & a && b && c 
+\end{align}
+% \begin{alignat}{3}
+%     & a && b && c \\
+%     & a && b && c 
+% \end{alignat}
+
+% 連立方程式
+\begin{cases}
+    
+\end{cases}
 
 % 行列
 \begin{pmatrix}
@@ -63,14 +73,15 @@
 
 % figure x1
 \begin{figure}
+    \label{fig3}
     \centering
     \includegraphics[width=15cm]{./kadai1/fig3.png}
     \caption{反転増幅回路}
-    \label{fig3}
 \end{figure}
 
 % figure x1
 \begin{figure}[h]
+    \label{cum_r}
     \centering
     \begin{tikzpicture}
         \tikzincludegraphics[width=18cm]{}
@@ -79,10 +90,37 @@
     \end{tikzpicture}
     \caption{
     }
-    \label{cum_r}
 \end{figure}
 
-
+% figure x2, horizontal
+\begin{figure}[t]
+    \centering
+    \begin{tabular}{cc}
+        \begin{minipage}[t]{0.45\hsize}
+            \centering
+            \begin{tikzpicture}
+                \tikzincludegraphics[width=5cm]{lambda_max_vs_alpha.pdf}
+                \xlabel{$d$}
+                \ylabel{$\lambda_1^+,~ \lambda_1$}
+            \end{tikzpicture}
+        \end{minipage}
+        
+        \begin{minipage}[t]{0.45\hsize}
+            \centering
+            \begin{tikzpicture}
+                \tikzincludegraphics[width=5cm]{m_vs_alpha.pdf}
+                \xlabel{$d$}
+                \ylabel{$\lvert m^+ \rvert,~ \abs{m}$}
+            \end{tikzpicture}
+        \end{minipage}
+    \end{tabular}
+    \caption{
+        $\alpha$が$2,4,8$の値をとる場合の数値実験の結果．$\gamma$の値は$4.0$に固定した．
+        赤実線は式（\ref{bbp-lambda}），（\ref{bbp-m}）を表し，青実線は式（\ref{extr}），（\ref{saddle-point}）から計算した解析解を表す．
+        破線は各$\alpha,\gamma$における$d_c^+$と$d_c$をそれぞれ表す．
+        }
+        \label{flex_alpha}
+\end{figure}
 
 
 

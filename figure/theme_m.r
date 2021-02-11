@@ -11,7 +11,7 @@
 
 mred <- "#CD313D"
 mblue <- "#4B75B5"
-mpurple	<- "#132B43"
+mdeepblue <- "#0000B2"
 
 theme_m <- function() {
   text_size <- 14
@@ -33,34 +33,36 @@ theme_m <- function() {
         
         # ==============================
         
-        # Legend text
         legend.text = element_text(size = text_size),
         legend.title = element_blank(),
-        
-       # Legend float position
-        ## top-left
-        # legend.position = c(.00, .95),
-        # legend.justification = c("left", "top"),
-        # legend.box.just = "top",
-
-        ## bottom-right
-        legend.position = c(.95, .10),
-        legend.justification = c("right", "bottom"),
-        legend.box.just = "bottom",
 
         legend.margin = margin(6, 6, 6, 6),
         legend.box = "horizontal",
-        legend.key.width = unit(2,"cm"),
         
+        ## top-left
+        legend.position = c(.05, .95),
+        legend.justification = c("left", "top"),
+        legend.box.just = "top",
+
+        ## top-right
+        # legend.position = c(.95, .95),
+        # legend.justification = c("right", "top"),
+        # legend.box.just = "top",
+
+        ## bottom-right
+        # legend.position = c(.95, .10),
+        # legend.justification = c("right", "bottom"),
+        # legend.box.just = "bottom",
+
+        legend.key.width = unit(1,"cm"),
+        legend.key.height = unit(2.5,"cm"),
+
         # Legened color(white + frame)
-        # legend.background = element_rect(fill="white", size=0.5, linetype="solid", colour="black"),
+        # legend.background = element_rect(fill=alpha("white", 0.9), size=0.5, linetype="solid", colour="black"),
         
         # Legened color(transparent)
         legend.background = element_rect(colour = "transparent", fill = NA),
-        
-        # Legened height
-        legend.key.height = unit(2.5, 'cm'),
-        
+
         # ==============================
         
         # Remove grid line (optional)
