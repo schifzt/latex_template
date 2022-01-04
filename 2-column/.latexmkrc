@@ -7,4 +7,5 @@ $bibtex           = 'pbibtex';
 $biber = 'biber --bblencoding=utf8 -u -U --output_safechars';
 $dvipdf           = 'dvipdfmx %O -o %D %S';
 $makeindex        = 'mendex %O -o %D %S';
+@default_files    = ('main.tex');
 # $pvc_view_file_via_temporary = 0;

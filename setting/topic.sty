@@ -1,0 +1,21 @@
+% Description:
+%   bold topic sentence on/off
+%
+% Usage:
+%   \topic{I wanna be a cat.}
+%
+% Parameter:
+%   \topictrue：bold ON
+%   \topicfalse：bold OFF
+
+
+\newif\iftopic
+\topictrue
+% \topicfalse
+\newcommand{\topic}[1]{
+    \iftopic
+        \textbf{#1}
+    \else
+        #1
+    \fi
+}
