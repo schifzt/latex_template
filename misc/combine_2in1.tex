@@ -1,0 +1,7 @@
+\documentclass[uplatex, dvipdfmx, cjk]{jsarticle}
+\usepackage{pdfpages}
+\def\source{rotate_specific_pages.pdf}
+
+\begin{document}
+\includepdf[nup=1x2, landscape, pages={1-}]{\source}
+\end{document}

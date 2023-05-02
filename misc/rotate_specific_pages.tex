@@ -1,0 +1,22 @@
+\documentclass[uplatex, dvipdfmx, cjk]{jsarticle}
+\usepackage{pdfpages}
+\def\source{IMG_0001.pdf}
+
+\begin{document}
+\includepdf[pages={1},angle=0]{\source}
+\includepdf[pages={2},angle=180]{\source}
+\includepdf[pages={3},angle=0]{\source}
+\includepdf[pages={4},angle=180]{\source}
+\includepdf[pages={5},angle=0]{\source}
+\includepdf[pages={6},angle=180]{\source}
+\includepdf[pages={7},angle=0]{\source}
+\includepdf[pages={8},angle=180]{\source}
+\includepdf[pages={9},angle=0]{\source}
+\includepdf[pages={10},angle=180]{\source}
+\includepdf[pages={11},angle=0]{\source}
+\includepdf[pages={12},angle=180]{\source}
+\includepdf[pages={13},angle=0]{\source}
+\includepdf[pages={14},angle=180]{\source}
+\includepdf[pages={15},angle=0]{\source}
+% \includepdf[nup=3x3, landscape, pages={1-}]{\source}
+\end{document}
